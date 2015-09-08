@@ -23,9 +23,6 @@ typedef struct {
 		} gpr[8];
 
 	/* Do NOT change the order of the GPRs' definitions. */
-	//typedef gpr[0] eax;
-
-	//
 		struct {
 			uint32_t eax;
 			uint32_t ecx;
