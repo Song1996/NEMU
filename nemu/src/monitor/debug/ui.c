@@ -6,6 +6,7 @@
 #include <stdlib.h>
 #include <readline/readline.h>
 #include <readline/history.h>
+extern CPU_state cpu;
 
 void cpu_exec(uint32_t);
 
@@ -119,7 +120,7 @@ static int cmd_info(char *args){
 	{
 		if(strcmp(args,"r")==0)
 		{
-			printf("right\n");			
+			printf("eax			%p	%d	%X\n",(void*)cpu.eax,cpu.eax,cpu.eax);			
 		}
 	}
 	return 0;
