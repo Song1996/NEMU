@@ -185,7 +185,7 @@ static int cmd_x(char *args)
 		int j=0;
 		for(;j<n;j++)
 		{
-			printf("%#02x		%#02x\n",addr+j,swaddr_read(addr+j,1));
+			printf("0x%02x		0x%02x\n",addr+j,swaddr_read(addr+j,1));
 		}
 
 	}
