@@ -80,7 +80,9 @@ static int cmd_help(char *args) {
 
 static int cmd_si(char *args){
 	cpu_exec(1);
-	printf("%s   %d",args,strlen(args));
+	printf("%s\n",args);
+	int song=strlen(args);
+	printf("%d\n",song);
 	return 0;	
 }
 
