@@ -101,8 +101,9 @@ static int cmd_si(char *args){
 			else
 			{
 				n=(10*n)+(t-'0');
-				i++;
+				//i++;
 			}
+			i++;
 			t=args[i];
 		}
 		cpu_exec(n);
