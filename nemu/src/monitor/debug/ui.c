@@ -80,6 +80,7 @@ static int cmd_help(char *args) {
 
 static int cmd_si(char *args){
 	cpu_exec(1);
+	printf("%s",args);
 	return 0;	
 }
 
