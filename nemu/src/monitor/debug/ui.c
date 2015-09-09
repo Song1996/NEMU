@@ -138,6 +138,55 @@ static int cmd_x(char *args)
 	if(args==NULL);
 	else
 	{
+		int i=0;
+		char t=args[i];
+		while(t==' ')
+		{
+			i++;
+			t=args[i];
+		}
+		int n=0;
+		while(t!=' ')
+		{
+			if('0'<=t&&t<='9')
+			{
+				n=n*10+t-'0';
+			}
+			else
+			{
+				printf("Unknown command\n");
+				return 0;
+			}
+			i++;
+			t=args[i];
+		}
+		while(t==' ')
+		{
+			i++;
+			t=args[i];
+		}
+		uint32_t addr=0;
+		while(t!='\0')
+		{
+			if(t<='9'&&t>='0')
+				addr=addr*16+t-'0';
+			else if(t<='F'&&t>='A')
+				addr=addr*16+t-'A'+10;
+			else if(t<='f'&&t>='a')
+				addr=addr*16+t-'a';
+			else
+			{
+				printf("Unknown command\n");
+				return 0;
+			}
+			i++;
+			t=args[i];
+		}
+		int j=0;
+		for(;j<n;j++)
+		{
+			printf("0X%X		0X%X",addr,swaddr_read(addr,4));
+		}
 
 	}
 	return 0;
