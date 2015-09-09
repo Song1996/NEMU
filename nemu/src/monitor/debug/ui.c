@@ -40,6 +40,8 @@ static int cmd_si(char *args);
 
 static int cmd_help(char *args);
 
+static int cmd_info(char *args);
+
 static struct {
 	char *name;
 	char *description;
@@ -48,7 +50,8 @@ static struct {
 	{ "help", "Display informations about all supported commands", cmd_help },
 	{ "c", "Continue the execution of the program", cmd_c },
 	{ "q", "Exit NEMU", cmd_q },
-	{ "si", "Dan Bu Tiao Shi", cmd_si }
+	{ "si", "Dan Bu Tiao Shi", cmd_si },
+	{"info"," Some information", cmd_info}
 	/* TODO: Add more commands */
 
 };
@@ -108,6 +111,18 @@ static int cmd_si(char *args){
 		cpu_exec(n);
 	}
 	return 0;	
+}
+
+static int cmd_info(char *args){
+	if(args==NULL);
+	else
+	{
+		if(strcmp(args,"r")==0)
+		{
+			printf("right\n");			
+		}
+	}
+	return 0;
 }
 
 void ui_mainloop() {
