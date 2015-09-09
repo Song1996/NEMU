@@ -166,26 +166,31 @@ static int cmd_x(char *args)
 			t=args[i];
 		}
 		uint32_t addr=0;
-		while(t!='\0')
+		if(args[i]=='0'&&args[i+1]=='x')
 		{
-			if(t<='9'&&t>='0')
-				addr=addr*16+t-'0';
-			else if(t<='F'&&t>='A')
-				addr=addr*16+t-'A'+10;
-			else if(t<='f'&&t>='a')
-				addr=addr*16+t-'a'+10;
-			else
-			{
-				printf("Unknown command\n");
-				return 0;
-			}
-			i++;
+			i+=2;
 			t=args[i];
-		}
-		int j=0;
-		for(;j<n;j++)
-		{
-			printf("0x%02x		0x%02x\n",addr+j,swaddr_read(addr+j,1));
+			while(t!='\0')
+			{
+				if(t<='9'&&t>='0')
+					addr=addr*16+t-'0';
+				else if(t<='F'&&t>='A')
+					addr=addr*16+t-'A'+10;
+				else if(t<='f'&&t>='a')
+					addr=addr*16+t-'a'+10;
+				else
+				{
+					printf("Unknown command\n");
+					return 0;
+				}
+				i++;
+				t=args[i];
+			}
+			int j=0;
+			for(;j<n;j++)
+			{
+				printf("0x%02x		0x%02x\n",addr+j,swaddr_read(addr+j,1));
+			}
 		}
 
 	}
