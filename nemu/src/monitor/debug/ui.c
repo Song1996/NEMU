@@ -79,8 +79,35 @@ static int cmd_help(char *args) {
 }
 
 static int cmd_si(char *args){
-	cpu_exec(1);
-	printf("%s\n",args);
+	if(args==NULL)
+		cpu_exec(1);
+	else
+	{
+		int n=0;
+		int i=0;
+		char t=args[i];
+		while(t==' ')
+		{
+			i++;
+			t=args[i];
+		}
+		while(t!='\0')
+		{
+			if(t>'9'||t<'0')
+			{
+				printf("Unknown command\n");
+				return 0;
+			}
+			else
+			{
+				n=10*n+t-'0';
+				i++;
+			}
+			t=args[i];
+		}
+		cpu_exec(n);
+	}
+	//printf("%s\n",args);
 		//int song=strlen(args);
 	//printf("%d\n",song);
 	return 0;	
