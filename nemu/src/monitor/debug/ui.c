@@ -100,7 +100,7 @@ static int cmd_si(char *args){
 			}
 			else
 			{
-				n=10*n+t-'0';
+				n=(10*n)+(t-'0');
 				i++;
 			}
 			t=args[i];
