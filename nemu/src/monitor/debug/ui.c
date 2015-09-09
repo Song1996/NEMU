@@ -120,7 +120,14 @@ static int cmd_info(char *args){
 	{
 		if(strcmp(args,"r")==0)
 		{
-			printf("eax			%p	%d	%X\n",(void*)cpu.eax,cpu.eax,cpu.eax);			
+			printf("eax		%d	%X\n",cpu.eax,cpu.eax);			
+			printf("ecx		%d	%X\n",cpu.ecx,cpu.ecx);			
+			printf("edx		%d	%X\n",cpu.edx,cpu.edx);			
+			printf("ebx		%d	%X\n",cpu.ebx,cpu.ebx);			
+			printf("esp		%d	%X\n",cpu.esp,cpu.esp);			
+			printf("ebp		%d	%X\n",cpu.ebp,cpu.ebp);			
+			printf("esi		%d	%X\n",cpu.esi,cpu.esi);			
+			printf("edi		%d	%X\n",cpu.edi,cpu.edi);			
 		}
 	}
 	return 0;
