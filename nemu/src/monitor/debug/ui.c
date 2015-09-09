@@ -38,10 +38,9 @@ static int cmd_q(char *args) {
 }
 
 static int cmd_si(char *args);
-
 static int cmd_help(char *args);
-
 static int cmd_info(char *args);
+static int cmd_x(char *args);
 
 static struct {
 	char *name;
@@ -52,7 +51,8 @@ static struct {
 	{ "c", "Continue the execution of the program", cmd_c },
 	{ "q", "Exit NEMU", cmd_q },
 	{ "si", "Dan Bu Tiao Shi", cmd_si },
-	{"info"," Some information", cmd_info}
+	{"info","Some information", cmd_info},
+	{"x","Scan memory",cmd_x}
 	/* TODO: Add more commands */
 
 };
@@ -129,6 +129,16 @@ static int cmd_info(char *args){
 			printf("esi		%d	%X\n",cpu.esi,cpu.esi);			
 			printf("edi		%d	%X\n",cpu.edi,cpu.edi);			
 		}
+	}
+	return 0;
+}
+
+static int cmd_x(char *args)
+{
+	if(args==NULL);
+	else
+	{
+
 	}
 	return 0;
 }
