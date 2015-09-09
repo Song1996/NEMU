@@ -101,16 +101,12 @@ static int cmd_si(char *args){
 			else
 			{
 				n=(10*n)+(t-'0');
-				//i++;
 			}
 			i++;
 			t=args[i];
 		}
 		cpu_exec(n);
 	}
-	//printf("%s\n",args);
-		//int song=strlen(args);
-	//printf("%d\n",song);
 	return 0;	
 }
 
