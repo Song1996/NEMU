@@ -199,9 +199,13 @@ static int cmd_x(char *args)
 	return 0;
 }
 
+uint32_t expr(char *e,bool *success);
+
 static int cmd_p(char *args)
 {
-	expr(args,false);
+	bool success = false;
+	bool *psuccess=&success;
+	expr(args,psuccess);
 	return 0;
 }
 
