@@ -41,6 +41,7 @@ static int cmd_si(char *args);
 static int cmd_help(char *args);
 static int cmd_info(char *args);
 static int cmd_x(char *args);
+static int cmd_p(char *args);
 
 static struct {
 	char *name;
@@ -52,7 +53,8 @@ static struct {
 	{ "q", "Exit NEMU", cmd_q },
 	{ "si", "Dan Bu Tiao Shi", cmd_si },
 	{"info","Some information", cmd_info},
-	{"x","Scan memory",cmd_x}
+	{"x","Scan memory",cmd_x},
+	{"t","Calaulate the Polynomial",cmd_p}
 	/* TODO: Add more commands */
 
 };
@@ -196,6 +198,13 @@ static int cmd_x(char *args)
 	}
 	return 0;
 }
+
+static int cmd_p(char *args)
+{
+	expr(args,false);
+	return 0;
+}
+
 
 void ui_mainloop() {
 	while(1) {
