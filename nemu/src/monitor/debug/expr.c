@@ -98,7 +98,6 @@ static bool make_token(char *e) {
 uint32_t expr(char *e, bool *success) {
 	if(!make_token(e)) {
 		*success = false;
-		printf("\n^ ^");
 		return 0;
 	}	
 	/* TODO: Insert codes to evaluate the expression. */
