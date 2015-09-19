@@ -7,7 +7,7 @@
 #include <regex.h>
 
 enum {
-	NOTYPE = 256, EQ,DNUM,ADD,MIN,MULTY,DIV,LPAREN,RPAREN
+	NOTYPE = 256, EQ,NUM,ADD,MIN,MULTY,DIV,LPAREN,RPAREN
 
 	/* TODO: Add more token types */
 
@@ -30,7 +30,7 @@ static struct rule {
 	{"\\(",'('},					//zuo kuo hao
 	{"\\)",')'},					//you kuo hao
 	{"==", EQ},						// equal
-	{"[0-9]+",DNUM}					// Decimal number
+	{"[0-9]+",NUM}					// Decimal number
 };
 
 #define NR_REGEX (sizeof(rules) / sizeof(rules[0]) )
@@ -93,10 +93,10 @@ static bool make_token(char *e) {
 					case '-': tokens[ nr_token ++ ].type='-';break;
 					case '(': tokens[ nr_token ++ ].type='(';break;
 					case ')': tokens[ nr_token ++ ].type=')';break;
-					case DNUM: tokens[ nr_token ].type=DNUM; 
-							 int j = pmatch.rm_so;
-							 for(;j<pmatch.rm_eo;j++)
-								tokens[ nr_token ].str[j]=e[position+j];
+					case NUM: tokens[ nr_token ].type=NUM; 
+							 int j = 0;
+							 for(;j<pmatch.rm_eo-2;j++)
+								tokens[ nr_token ].str[j]=*(substr_start+j+2);
 							 tokens[nr_token].str[j]='\0';
 							 nr_token++;printf("\n%s\n",tokens[nr_token-1].str);break;
 					default: panic("please implement me");
