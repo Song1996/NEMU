@@ -218,9 +218,9 @@ uint32_t expr(char *e, bool *success) {
 	}
 	int q=nr_token-1;
 	uint32_t f=eval(0,q);
-	printf("%d\n",f);	
+	printf("\n%d\n",f);	
 	/* TODO: Insert codes to evaluate the expression. */
-	panic("please implement me");
+	//panic("please implement me");
 	return 0;
 }
 
