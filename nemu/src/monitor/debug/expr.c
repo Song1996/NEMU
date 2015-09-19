@@ -95,7 +95,7 @@ static bool make_token(char *e) {
 					case ')': tokens[ nr_token ++ ].type=')';break;
 					case NUM: tokens[ nr_token ].type=NUM; 
 							 int j = 0;
-							 for(;j<pmatch.rm_eo-2;j++)
+							 for(;j<substr_len-2;j++)
 								tokens[ nr_token ].str[j]=*(substr_start+j+2);
 							 tokens[nr_token].str[j]='\0';
 							 nr_token++;printf("\n%s\n",tokens[nr_token-1].str);break;
