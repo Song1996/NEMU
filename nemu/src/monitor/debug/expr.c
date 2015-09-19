@@ -98,7 +98,7 @@ static bool make_token(char *e) {
 							 for(;j<pmatch.rm_eo;j++)
 								tokens[ nr_token ].str[j]=e[position+j];
 							 tokens[nr_token].str[j]='\0';
-							 nr_token++;printf("%s",tokens[nr_token-1].str);break;
+							 nr_token++;printf("\n%s\n",tokens[nr_token-1].str);break;
 					default: panic("please implement me");
 				}
 
