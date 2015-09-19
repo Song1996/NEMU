@@ -6,6 +6,11 @@
 #include <sys/types.h>
 #include <regex.h>
 
+bool check_parentheses(int p,int q);
+uint32_t eval(int p,int q);
+int prior(int t);
+	
+		
 enum {
 	NOTYPE = 256, EQ,NUM,ADD,MIN,MULTY,DIV,LPAREN,RPAREN
 
@@ -98,7 +103,7 @@ static bool make_token(char *e) {
 							 for(;j<substr_len;j++)
 								tokens[ nr_token ].str[j]=*(substr_start+j);
 							 tokens[nr_token].str[j]='\0';
-							 nr_token++;printf("\n%s\n%s",tokens[nr_token-1].str,e);break;
+							 nr_token++;break;//printf("\n%s\n%s",tokens[nr_token-1].str,e);break;
 					default: panic("please implement me");
 				}
 
@@ -115,11 +120,105 @@ static bool make_token(char *e) {
 	return true; 
 }
 
+
+int prior(int t)
+{
+	switch(t)
+	{
+		case '+':case '-':return 1;
+		case '*':case '/':return 2;
+		default:return -1;
+	}
+}
+
+
+uint32_t eval(int p,int q)
+{
+	if(p>q)
+	{
+		panic("wrong expr");
+		return -1;
+	}
+	else if(p==q)
+	{
+		if(tokens[p].type==NUM)
+		{
+			int z=0;
+			int strp=0;
+			char t=tokens[p].str[strp];
+			while(t!='\0')
+			{
+				z=z*10+(t-'0');
+				strp++;
+				t=tokens[p].str[strp];
+			}
+			return z;
+		}
+		else
+		{
+			panic("wrong expr");
+			return -1;
+		}
+	}
+	else if(check_parentheses(p,q))
+	{
+		return eval(p+1,q-1);
+	}
+	else
+	{
+		int np=0;
+		int i=0;
+		int k=0;
+		for(i=p;i<q+1;i++)
+			if(tokens[i].type=='(')np++;
+			else if(tokens[i].type==')')np--;
+			else if(np==0&&tokens[i].type!=NUM)
+				{
+					if(tokens[k].type=='(')
+						k=i;
+					else if(prior(tokens[i].type)>prior(tokens[k].type))
+						k=i;
+				}
+		switch(tokens[k].type)
+		{
+		case '+':return eval(p,k-1)+eval(k+1,q);
+		case '-':return eval(p,k-1)-eval(k+1,q);
+		case '*':return eval(p,k-1)*eval(k+1,q);
+		case '/':return eval(p,k-1)*eval(k+1,q);
+		default: return -1;
+		}
+	}
+}
+bool check_parentheses(int p,int q)
+{
+	int i=p;
+	int np=0;
+	for(i=p;i<q+1;i++)
+	{
+		if(tokens[i].type=='(')
+			np++;
+		else if(tokens[i].type==')')
+			np--;
+		if(np<0)
+		{
+			panic("wrong expr");
+			return false;
+		}
+	}
+	if(np==0)
+		return true;
+	else
+		return false;
+}
+
 uint32_t expr(char *e, bool *success) {
 	if(!make_token(e)) {
 		*success = false;
 		return 0;
-	}	
+	}
+	int q=nr_token-1;
+	uint32_t f=eval(0,q);
+	printf("%d\n",f);	
 	/* TODO: Insert codes to evaluate the expression. */
 	panic("please implement me");
 	return 0;
