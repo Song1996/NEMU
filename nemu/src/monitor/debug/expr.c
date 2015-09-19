@@ -205,7 +205,7 @@ bool check_parentheses(int p,int q)
 			return false;
 		}
 	}
-	if(np==0)
+	if(np==0&&tokens[p].type=='('&&tokens[q].type==')')
 		return true;
 	else
 		return false;
