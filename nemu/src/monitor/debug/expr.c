@@ -210,6 +210,8 @@ uint32_t eval(int p,int q)
 		case '/':return eval(p,k-1)/eval(k+1,q);
 		case AND:return eval(p,k-1)&&eval(k+1,q);
 		case OR:return eval(p,k-1)||eval(k+1,q);
+		case EQ:return eval(p,k-1)==eval(k+1,q);
+		case NQ:return eval(p,k-1)!=eval(k+1,q);
 		default: assert(0);return -1;
 		}
 	}
