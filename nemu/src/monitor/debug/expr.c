@@ -194,7 +194,7 @@ uint32_t eval(int p,int q)
 			else if(tokens[i].type==')')np--;
 			else if(np==0&&tokens[i].type!=NUM)
 				{
-					if(tokens[k].type=='(')
+					if(tokens[k].type=='('||tokens[k].type==NUM)
 						k=i;
 					else if(prior(tokens[i].type)<prior(tokens[k].type))
 						k=i;
