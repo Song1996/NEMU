@@ -159,8 +159,8 @@ uint32_t eval(int p,int q)
 {
 	if(p>q)
 	{
-		panic("wrong expr");
-		return -1;
+		//panic("wrong expr");
+		return 0;
 	}
 	else if(p==q)
 	{
@@ -177,6 +177,35 @@ uint32_t eval(int p,int q)
 			}
 			return z;
 		}
+		else if(tokens[p].type==HEXNUM)
+		{
+			int z=0;
+			int strp=0;
+			char t=tokens[p].str[strp];
+			while(t!='\0')
+			{
+				if(t>='0'&&t<='9')
+					z=z*16+t-'0';
+				else if(t>='a'&&t<='f')
+					z=z*16+t-'a'+10;
+				else if(t>'A'&&t<='F')
+					z=z*16+t-'A'+10;
+				strp++;
+				t=tokens[p].str[strp];
+			}
+			return z;
+		}
+		/*else if(tokens[p].type==REG)
+		{
+			int i;
+			for(i=0;i<8;i++)
+			{
+				if(strcmp(tokens[p].str,regsl[i])==0) return reg_l(i);
+				if(strcmp(tokens[p].str,regsw[i])==0) return reg_w(i);
+				if(strcmp(tokens[p].str,regsb[i])==0) return reg_b(i);
+				//else {panic("wrong regiser!");return -1;}
+			}
+		}*/
 		else
 		{
 			panic("wrong expr");
@@ -212,6 +241,8 @@ uint32_t eval(int p,int q)
 		case OR:return eval(p,k-1)||eval(k+1,q);
 		case EQ:return eval(p,k-1)==eval(k+1,q);
 		case NQ:return eval(p,k-1)!=eval(k+1,q);
+		case '!':return !eval(k+1,q);
+		case DEFER: return swaddr_read(eval(k+1,q),4);
 		default: assert(0);return -1;
 		}
 	}
