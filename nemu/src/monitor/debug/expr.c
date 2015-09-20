@@ -227,11 +227,11 @@ uint32_t eval(int p,int q)
 		for(i=p;i<q+1;i++)
 			if(tokens[i].type=='(')np++;
 			else if(tokens[i].type==')')np--;
-			else if(np==0&&tokens[i].type!=NUM&&tokens[i].type!=HEXNUM&&tokens[i].type!=REG)
+			else if(np==0)
 				{
-					if(tokens[k].type=='('||tokens[k].type==NUM)
-						k=i;
-					else if(prior(tokens[i].type)<prior(tokens[k].type))
+					//if(tokens[k].type=='('||tokens[k].type==NUM)
+					//	k=i;
+					if(prior(tokens[i].type)<prior(tokens[k].type))
 						k=i;
 				}
 		switch(tokens[k].type)
