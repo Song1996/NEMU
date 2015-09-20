@@ -157,6 +157,9 @@ int prior(int t)
 
 uint32_t eval(int p,int q)
 {
+	int z;
+	int strp;
+	char t;
 	if(p>q)
 	{
 		//panic("wrong expr");
@@ -166,9 +169,9 @@ uint32_t eval(int p,int q)
 	{
 		if(tokens[p].type==NUM)
 		{
-			int z=0;
-			int strp=0;
-			char t=tokens[p].str[strp];
+			z=0;
+			strp=0;
+			t=tokens[p].str[strp];
 			while(t!='\0')
 			{
 				z=z*10+(t-'0');
@@ -179,9 +182,9 @@ uint32_t eval(int p,int q)
 		}
 		else if(tokens[p].type==HEXNUM)
 		{
-			int z=0;
-			int strp=0;
-			char t=tokens[p].str[strp];
+			z=0;
+			strp=0;
+			t=tokens[p].str[strp];
 			while(t!='\0')
 			{
 				if(t>='0'&&t<='9')
@@ -224,7 +227,7 @@ uint32_t eval(int p,int q)
 		for(i=p;i<q+1;i++)
 			if(tokens[i].type=='(')np++;
 			else if(tokens[i].type==')')np--;
-			else if(np==0&&tokens[i].type!=NUM)
+			else if(np==0&&tokens[i].type!=NUM&&tokens[i].type!=HEXNUM&&tokens[i].type!=REG)
 				{
 					if(tokens[k].type=='('||tokens[k].type==NUM)
 						k=i;
