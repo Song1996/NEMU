@@ -146,6 +146,7 @@ int prior(int t)
 	{
 		case '+':case '-':return 1;
 		case '*':case '/':return 2;
+
 		default:return -1;
 	}
 }
@@ -204,7 +205,7 @@ uint32_t eval(int p,int q)
 		case '-':return eval(p,k-1)-eval(k+1,q);
 		case '*':return eval(p,k-1)*eval(k+1,q);
 		case '/':return eval(p,k-1)/eval(k+1,q);
-		default: return -1;
+		default: assert(0);return -1;
 		}
 	}
 }
