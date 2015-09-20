@@ -12,7 +12,7 @@ int prior(int t);
 	
 		
 enum {
-	NOTYPE = 256, EQ,NUM,HEXNUM,NQ,AND,OR,REG
+	NOTYPE = 256, EQ,NUM,HEXNUM,NQ,AND,OR,REG,DEREF
 
 	/* TODO: Add more token types */
 
@@ -119,7 +119,6 @@ static bool make_token(char *e) {
 								for(j=2;j<substr_len;j++)
 									tokens[ nr_token ].str[j-2]=substr_start[j];
 								tokens[ nr_token ++ ].str[j-2]='\0';break;
-
 					case REG: tokens[ nr_token ].type=REG;
 							  for(j=1;j<substr_len;j++)
 								  tokens[ nr_token ].str[j-1]=substr_start[j];
@@ -235,6 +234,14 @@ uint32_t expr(char *e, bool *success) {
 	if(!make_token(e)) {
 		*success = false;
 		return 0;
+	}
+	int i;
+	for(i = 0; i < nr_token; i ++)
+   	{
+		if(tokens[i].type == '*' && (i == 0 ||( tokens[i - 1].type!=NUM && tokens[i-1].type!=HEXNUM && tokens[i-1].type!=REG && tokens[i-1].type!=')') ) )
+	   	{
+			tokens[i].type = DEREF;
+		}
 	}
 	int q=nr_token-1;
 	printf("%d\n",q);
