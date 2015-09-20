@@ -12,7 +12,7 @@ int prior(int t);
 	
 		
 enum {
-	NOTYPE = 256, EQ,NUM,ADD,MIN,MULTY,DIV,LPAREN,RPAREN
+	NOTYPE = 256, EQ,NUM,HEXNUM,NQ,AND,OR,REG
 
 	/* TODO: Add more token types */
 
@@ -35,7 +35,14 @@ static struct rule {
 	{"\\(",'('},					//zuo kuo hao
 	{"\\)",')'},					//you kuo hao
 	{"==", EQ},						// equal
-	{"[0-9]+",NUM}					// Decimal number
+	{"!=",NQ},						//not equal
+	{"!",'!'},						//not
+	{"\\&{2}",AND},					//AND
+	{"\\|{2}",OR},					//OR	
+	{"0[xX][0-9a-fA-F]+",HEXNUM},	//HEXNUM
+	{"[0-9]+",NUM},					// Decimal number
+	{"(\\$e?[abcd]x)|(\\$e?[sd]i)|(\\$e?[sb]p)|(\\$[abcd][lh])",REG}	//registers
+
 };
 
 #define NR_REGEX (sizeof(rules) / sizeof(rules[0]) )
@@ -98,12 +105,25 @@ static bool make_token(char *e) {
 					case '-': tokens[ nr_token ++ ].type='-';break;
 					case '(': tokens[ nr_token ++ ].type='(';break;
 					case ')': tokens[ nr_token ++ ].type=')';break;
+					case AND: tokens[ nr_token ++ ].type=AND;break;
+					case OR: tokens[ nr_token ++ ].type=OR;break;
+					case NQ: tokens[ nr_token ++ ].type=NQ;break;
+					case '!': tokens[ nr_token ++ ].type='!';break;
 					case NUM: tokens[ nr_token ].type=NUM; 
 							 int j = 0;
 							 for(;j<substr_len;j++)
-								tokens[ nr_token ].str[j]=*(substr_start+j);
+								tokens[ nr_token ].str[j]=substr_start[j];
 							 tokens[nr_token].str[j]='\0';
 							 nr_token++;break;//printf("\n%s\n%s",tokens[nr_token-1].str,e);break;
+					case HEXNUM:tokens[ nr_token ].type=HEXNUM;
+								for(j=2;j<substr_len;j++)
+									tokens[ nr_token ].str[j-2]=substr_start[j];
+								tokens[ nr_token ++ ].str[j-2]='\0';break;
+
+					case REG: tokens[ nr_token ].type=REG;
+							  for(j=1;j<substr_len;j++)
+								  tokens[ nr_token ].str[j-1]=substr_start[j];
+							  tokens[ nr_token ++ ].str[j-1]='\0';break;
 					default: panic("please implement me");
 				}
 
