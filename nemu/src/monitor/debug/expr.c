@@ -12,7 +12,7 @@ int prior(int t);
 	
 		
 enum {
-	NOTYPE = 256, EQ,NUM,HEXNUM,NQ,AND,OR,REG,DEREF
+	NOTYPE = 256, EQ,NUM,HEXNUM,NQ,AND,OR,REG,DEFER
 
 	/* TODO: Add more token types */
 
@@ -144,9 +144,12 @@ int prior(int t)
 {
 	switch(t)
 	{
-		case '+':case '-':return 1;
-		case '*':case '/':return 2;
-
+		case OR:return 1;
+		case AND:return 2;
+		case EQ:case NQ:return 3;
+		case '+':case '-':return 4;
+		case '*':case '/':return 5;
+		case '!':case DEFER:return 6;
 		default:return -1;
 	}
 }
@@ -205,6 +208,8 @@ uint32_t eval(int p,int q)
 		case '-':return eval(p,k-1)-eval(k+1,q);
 		case '*':return eval(p,k-1)*eval(k+1,q);
 		case '/':return eval(p,k-1)/eval(k+1,q);
+		case AND:return eval(p,k-1)&&eval(k+1,q);
+		case OR:return eval(p,k-1)||eval(k+1,q);
 		default: assert(0);return -1;
 		}
 	}
@@ -241,7 +246,7 @@ uint32_t expr(char *e, bool *success) {
    	{
 		if(tokens[i].type == '*' && (i == 0 ||( tokens[i - 1].type!=NUM && tokens[i-1].type!=HEXNUM && tokens[i-1].type!=REG && tokens[i-1].type!=')') ) )
 	   	{
-			tokens[i].type = DEREF;
+			tokens[i].type = DEFER;
 		}
 	}
 	int q=nr_token-1;
