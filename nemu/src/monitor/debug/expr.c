@@ -144,8 +144,8 @@ int prior(int t)
 {
 	switch(t)
 	{
-		case '+':case '-':return 2;
-		case '*':case '/':return 1;
+		case '+':case '-':return 1;
+		case '*':case '/':return 2;
 		default:return -1;
 	}
 }
@@ -195,7 +195,7 @@ uint32_t eval(int p,int q)
 				{
 					if(tokens[k].type=='(')
 						k=i;
-					else if(prior(tokens[i].type)>prior(tokens[k].type))
+					else if(prior(tokens[i].type)<prior(tokens[k].type))
 						k=i;
 				}
 		switch(tokens[k].type)
