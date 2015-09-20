@@ -150,7 +150,7 @@ int prior(int t)
 		case '+':case '-':return 4;
 		case '*':case '/':return 5;
 		case '!':case DEFER:return 6;
-		default:return -1;
+		default:return 10;
 	}
 }
 
