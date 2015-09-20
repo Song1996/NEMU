@@ -198,17 +198,19 @@ uint32_t eval(int p,int q)
 			}
 			return z;
 		}
-		/*else if(tokens[p].type==REG)
+		else if(tokens[p].type==REG)
 		{
+
 			int i;
 			for(i=0;i<8;i++)
 			{
 				if(strcmp(tokens[p].str,regsl[i])==0) return reg_l(i);
 				if(strcmp(tokens[p].str,regsw[i])==0) return reg_w(i);
 				if(strcmp(tokens[p].str,regsb[i])==0) return reg_b(i);
-				//else {panic("wrong regiser!");return -1;}
+		
 			}
-		}*/
+			return 0;
+		}
 		else
 		{
 			panic("wrong expr");
