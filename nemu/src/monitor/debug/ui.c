@@ -201,7 +201,7 @@ static int cmd_x(char *args)
 		}*/
 		bool success = false;
 		bool *psuccess=&success;
-		addr=expr(args,psuccess);
+		addr=expr(args+i,psuccess);
 		int j=0;
 		for(;j<n;j++)
 		{
