@@ -232,10 +232,13 @@ static int cmd_w(char *args)
 	bool *psuccess=&success;
 	int temp1=expr(watchp->Expr,psuccess);
 	int temp2=temp1;
-	while(temp1==temp2)
+	int p=0;
+	while(temp1==temp2&&p<10000)
 	{
+
 		cpu_exec(1);
 		temp2=expr(watchp->Expr,psuccess);
+		p++;
 	}
 	nemu_state=STOP;
 	printf("%d\n",temp2);
