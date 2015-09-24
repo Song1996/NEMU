@@ -54,7 +54,8 @@ static struct {
 	{ "si", "Dan Bu Tiao Shi", cmd_si },
 	{"info","Some information", cmd_info},
 	{"x","Scan memory",cmd_x},
-	{"t","Calaulate the Polynomial",cmd_p}
+	{"t","Calaulate the Polynomial",cmd_p},
+	{""}
 	/* TODO: Add more commands */
 
 };
@@ -207,7 +208,7 @@ static int cmd_p(char *args)
 {
 	bool success = false;
 	bool *psuccess=&success;
-	expr(args,psuccess);
+	printf("\n%d\n",expr(args,psuccess)); 
 	return 0;
 }
 
