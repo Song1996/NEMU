@@ -80,13 +80,13 @@ void cpu_exec(volatile uint32_t n) {
 		bool flag=false;
 		while(watchp!=NULL)
 		{
+			printf("%s",watchp->Expr);
 			temp=expr(watchp->Expr,psuccess);
 			if(temp!=watchp->Value)
 			{
 				flag=true;
 				watchp->Value=temp;
-			
-			printf("No.%d change to				%d\n",watchp->NO,watchp->Value);
+				printf("No.%d change to				%d\n",watchp->NO,watchp->Value);
 			}
 			watchp=watchp->next;
 		}
