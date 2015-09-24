@@ -43,6 +43,7 @@ static int cmd_info(char *args);
 static int cmd_x(char *args);
 static int cmd_p(char *args);
 static int cmd_w(char *args);
+static int cmd_d(char *args);
 
 static struct {
 	char *name;
@@ -57,8 +58,8 @@ static struct {
 	{"x","Scan memory",cmd_x},
 	{"p","Calaulate the Polynomial",cmd_p},
 	{"w","ADD one Watchpoint",cmd_w},
+	{"d","delete one watchpoint",cmd_d}
 	/* TODO: Add more commands */
-
 };
 
 #define NR_CMD (sizeof(cmd_table) / sizeof(cmd_table[0]))
@@ -249,6 +250,26 @@ static int cmd_w(char *args)
 	bool success = false;
 	bool *psuccess=&success;
 	watchp->Value=expr(watchp->Expr,psuccess);
+	return 0;
+}
+
+static int cmd_d(char *args)
+{
+	bool success = false;
+	bool *psuccess = &success;
+	int t=expr(args,psuccess);
+	WP* watchpoi=WP_returnhead();
+	while(watchpoi!=NULL)
+	{
+		if(watchpoi->NO==t)
+		{
+			free_wp(watchpoi);
+			return 0;
+		}
+		else
+			watchpoi=watchpoi->next;
+	}
+	printf("no found %s",args);
 	return 0;
 }
 
