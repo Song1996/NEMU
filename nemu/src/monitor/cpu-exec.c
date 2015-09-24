@@ -91,7 +91,10 @@ void cpu_exec(volatile uint32_t n) {
 			watchp=watchp->next;
 		}
 		if(flag)
+		{
 			nemu_state = STOP;
+			printf("watchpints changed\n");
+		}
 		/* TODO: check watchpoints here. */
 
 
