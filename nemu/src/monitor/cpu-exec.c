@@ -85,7 +85,7 @@ void cpu_exec(volatile uint32_t n) {
 			{
 				flag=true;
 				watchp->Value=temp;
-				printf("No.%d change to				%d\n",watchp->NO,watchp->Value);
+				printf("No.%d	%s	 change to				%d\n",watchp->NO,watchp->Expr,watchp->Value);
 			}
 			watchp=watchp->next;
 		}
