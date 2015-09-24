@@ -41,7 +41,7 @@ static struct rule {
 	{"\\|{2}",OR},					//OR	
 	{"0[xX][0-9a-fA-F]+",HEXNUM},	//HEXNUM
 	{"[0-9]+",NUM},					// Decimal number
-	{"(\\$e?[abcd]x)|(\\$e?[sd]i)|(\\$e?[sb]p)|(\\$[abcd][lh])",REG}	//registers
+	{"(\\$e?[abcd]x)|(\\$e?[sd]i)|(\\$e?[sb]p)|(\\$[abcd][lh])|(\\$eip)",REG}	//registers
 
 };
 
@@ -207,8 +207,9 @@ uint32_t eval(int p,int q)
 				if(strcmp(tokens[p].str,regsl[i])==0) return reg_l(i);
 				if(strcmp(tokens[p].str,regsw[i])==0) return reg_w(i);
 				if(strcmp(tokens[p].str,regsb[i])==0) return reg_b(i);
-		
 			}
+			if(strcmp(tokens[p].str,"eip")==0)
+				return cpu.eip;
 			assert(0);
 			return 0;
 		}
