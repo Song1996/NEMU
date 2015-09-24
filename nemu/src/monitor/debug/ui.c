@@ -225,6 +225,20 @@ static int cmd_p(char *args)
 
 static int cmd_w(char *args)
 {
+	WP* watchp=new_wp();
+	printf("%d\n",watchp->NO);
+	watchp->Expr=args;
+	bool success = false;
+	bool *psuccess=&success;
+	int temp1=expr(watchp->Expr,psuccess);
+	int temp2=temp1;
+	while(temp1==temp2)
+	{
+		cpu_exec(1);
+		temp2=expr(watchp->Expr,psuccess);
+	}
+	nemu_state=STOP;
+	printf("%d\n",temp2);
 	return 0;
 }
 
