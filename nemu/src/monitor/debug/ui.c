@@ -269,7 +269,7 @@ static int cmd_d(char *args)
 		else
 			watchpoi=watchpoi->next;
 	}
-	printf("no found %s",args);
+	printf("no found %s\n",args);
 	return 0;
 }
 
