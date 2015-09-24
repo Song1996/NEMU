@@ -227,21 +227,18 @@ static int cmd_w(char *args)
 {
 	WP* watchp=new_wp();
 	printf("%d\n",watchp->NO);
-	watchp->Expr=args;
+	char* te=watchp->Expr;
+	char t=args[0];
+	int i=0;
+	while(t!='\0')
+	{
+		te[i]=args[i];
+		i++;
+	}
+	te[i]=args[i];
 	bool success = false;
 	bool *psuccess=&success;
 	watchp->Value=expr(watchp->Expr,psuccess);
-	/*int temp2=temp1;
-	int p=0;
-	while(temp1==temp2&&p<10000)
-	{
-
-		cpu_exec(1);
-		temp2=expr(watchp->Expr,psuccess);
-		p++;
-	}
-	nemu_state=STOP;
-	printf("%d\n",temp2);*/
 	return 0;
 }
 
