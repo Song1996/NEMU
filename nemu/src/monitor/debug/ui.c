@@ -42,6 +42,7 @@ static int cmd_help(char *args);
 static int cmd_info(char *args);
 static int cmd_x(char *args);
 static int cmd_p(char *args);
+static int cmd_w(char *args);
 
 static struct {
 	char *name;
@@ -55,7 +56,7 @@ static struct {
 	{"info","Some information", cmd_info},
 	{"x","Scan memory",cmd_x},
 	{"t","Calaulate the Polynomial",cmd_p},
-	{""}
+	{"w","ADD one Watchpoint",cmd_w},
 	/* TODO: Add more commands */
 
 };
@@ -171,7 +172,7 @@ static int cmd_x(char *args)
 			t=args[i];
 		}
 		uint32_t addr=0;
-		if(args[i]=='0'&&args[i+1]=='x')
+		/*if(args[i]=='0'&&args[i+1]=='x')
 		{
 			i+=2;
 			t=args[i];
@@ -191,11 +192,21 @@ static int cmd_x(char *args)
 				i++;
 				t=args[i];
 			}
+
 			int j=0;
 			for(;j<n;j++)
 			{
 				printf("0x%02x		0x%02x\n",addr+j,swaddr_read(addr+j,1));
 			}
+		}*/
+		bool success = false;
+		bool *psuccess=&success;
+		addr=expr(args,psuccess);
+		int j=0;
+		for(;j<n;j++)
+		{
+				printf("0x%02x		0x%02x\n",addr+j,swaddr_read(addr+j,1));
+
 		}
 
 	}
@@ -209,6 +220,11 @@ static int cmd_p(char *args)
 	bool success = false;
 	bool *psuccess=&success;
 	printf("\n%d\n",expr(args,psuccess)); 
+	return 0;
+}
+
+static int cmd_w(char *args)
+{
 	return 0;
 }
 
