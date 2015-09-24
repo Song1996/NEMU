@@ -80,7 +80,7 @@ void cpu_exec(volatile uint32_t n) {
 		bool flag=false;
 		while(watchp!=NULL)
 		{
-			printf("%s",watchp->Expr);
+			printf("%s\n",watchp->Expr);
 			temp=expr(watchp->Expr,psuccess);
 			if(temp!=watchp->Value)
 			{
