@@ -234,6 +234,7 @@ static int cmd_w(char *args)
 	{
 		te[i]=args[i];
 		i++;
+		t=args[i];
 	}
 	te[i]=args[i];
 	bool success = false;
