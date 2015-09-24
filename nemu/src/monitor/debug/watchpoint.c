@@ -19,6 +19,10 @@ void init_wp_list() {
 }
 
 /* TODO: Implement the functionality of watchpoint */
+WP* WP_returnhead()
+{
+	return head;
+}
 
 WP* new_wp()
 {

@@ -230,8 +230,8 @@ static int cmd_w(char *args)
 	watchp->Expr=args;
 	bool success = false;
 	bool *psuccess=&success;
-	int temp1=expr(watchp->Expr,psuccess);
-	int temp2=temp1;
+	watchp->Value=expr(watchp->Expr,psuccess);
+	/*int temp2=temp1;
 	int p=0;
 	while(temp1==temp2&&p<10000)
 	{
@@ -241,7 +241,7 @@ static int cmd_w(char *args)
 		p++;
 	}
 	nemu_state=STOP;
-	printf("%d\n",temp2);
+	printf("%d\n",temp2);*/
 	return 0;
 }
 
