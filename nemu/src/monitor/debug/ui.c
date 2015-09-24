@@ -135,6 +135,15 @@ static int cmd_info(char *args){
 			printf("eip		%d		%X\n",cpu.eip,cpu.eip);
 						
 		}
+		else if(strcmp(args,"w")==0)
+		{
+			WP* watchpoi=WP_returnhead();
+			while(watchpoi!=NULL)
+			{
+				printf("No.%d	%s			%d\n",watchpoi->NO,watchpoi->Expr,watchpoi->Value);
+				watchpoi=watchpoi->next;
+			}
+		}
 	}
 	return 0;
 }
