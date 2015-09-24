@@ -209,6 +209,7 @@ uint32_t eval(int p,int q)
 				if(strcmp(tokens[p].str,regsb[i])==0) return reg_b(i);
 		
 			}
+			assert(0);
 			return 0;
 		}
 		else
