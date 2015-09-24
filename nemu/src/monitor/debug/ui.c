@@ -129,7 +129,9 @@ static int cmd_info(char *args){
 			printf("esp		%d	%X\n",cpu.esp,cpu.esp);			
 			printf("ebp		%d	%X\n",cpu.ebp,cpu.ebp);			
 			printf("esi		%d	%X\n",cpu.esi,cpu.esi);			
-			printf("edi		%d	%X\n",cpu.edi,cpu.edi);			
+			printf("edi		%d	%X\n",cpu.edi,cpu.edi);
+			printf("eip		%d	%X\n",cpu.eip,cpu.eip);
+						
 		}
 	}
 	return 0;
