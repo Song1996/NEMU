@@ -55,7 +55,7 @@ static struct {
 	{ "si", "Dan Bu Tiao Shi", cmd_si },
 	{"info","Some information", cmd_info},
 	{"x","Scan memory",cmd_x},
-	{"t","Calaulate the Polynomial",cmd_p},
+	{"p","Calaulate the Polynomial",cmd_p},
 	{"w","ADD one Watchpoint",cmd_w},
 	/* TODO: Add more commands */
 
