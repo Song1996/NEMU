@@ -1,6 +1,7 @@
 #include "nemu.h"
 
 #define ENTRY_START 0x100000
+#define EFLAGS_START 0x00000002
 
 extern uint8_t entry [];
 extern uint32_t entry_len;
@@ -86,6 +87,9 @@ void restart() {
 
 	/* Set the initial instruction pointer. */
 	cpu.eip = ENTRY_START;
+	
+	/*Set the initial value of EFLAGS*/
+	cpu.EFLAGS.val = EFLAGS_START;
 
 	/* Initialize DRAM. */
 	init_ddr3();
