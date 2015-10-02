@@ -133,8 +133,8 @@ static int cmd_info(char *args){
 			printf("ebp		%d	0x%x\n",cpu.ebp,cpu.ebp);			
 			printf("esi		%d	0x%x\n",cpu.esi,cpu.esi);			
 			printf("edi		%d	0x%x\n",cpu.edi,cpu.edi);
-			printf("eip				0x%8x\n",cpu.eip);
-			printf("EFLAGS				0x%8x\n",cpu.EFLAGS.val);
+			printf("eip				0x%08x\n",cpu.eip);
+			printf("EFLAGS				0x%08x\n",cpu.EFLAGS.val);
 						
 		}
 		else if(strcmp(args,"w")==0)
