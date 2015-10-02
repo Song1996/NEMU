@@ -133,7 +133,7 @@ static int cmd_info(char *args){
 			printf("ebp		%d	0x%x\n",cpu.ebp,cpu.ebp);			
 			printf("esi		%d	0x%x\n",cpu.esi,cpu.esi);			
 			printf("edi		%d	0x%x\n",cpu.edi,cpu.edi);
-			printf("eip		%d		0x%x\n",cpu.eip,cpu.eip);
+			printf("eip				0x%x\n",cpu.eip);
 			printf("EFLAGS			0x%x\n",cpu.EFLAGS.val);
 						
 		}
