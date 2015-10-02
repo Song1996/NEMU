@@ -134,6 +134,7 @@ static int cmd_info(char *args){
 			printf("esi		%d	%X\n",cpu.esi,cpu.esi);			
 			printf("edi		%d	%X\n",cpu.edi,cpu.edi);
 			printf("eip		%d		%X\n",cpu.eip,cpu.eip);
+			printf("EFLAGS			%X\n",cpu.EFLAGS.val);
 						
 		}
 		else if(strcmp(args,"w")==0)
