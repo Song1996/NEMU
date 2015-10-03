@@ -41,7 +41,7 @@ typedef struct {
 		struct{
 			unsigned int   CF: 1;
 			unsigned int     : 1;
-			unsigned int   PE: 1;
+			unsigned int   PF: 1;
 			unsigned int     : 1;
 			unsigned int   AF: 1;
 			unsigned int     : 1;
