@@ -89,7 +89,7 @@ void restart() {
 	cpu.eip = ENTRY_START;
 	
 	/*Set the initial value of EFLAGS*/
-	cpu.EFLAGS.val = EFLAGS_START;
+	cpu.eflags_val = EFLAGS_START;
 
 	/* Initialize DRAM. */
 	init_ddr3();

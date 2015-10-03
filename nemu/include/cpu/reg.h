@@ -58,8 +58,8 @@ typedef struct {
 			unsigned int   VM: 1;
 			unsigned int	 :14;
 		};
-		uint32_t val;
-	} EFLAGS;
+		uint32_t eflags_val;
+	};
 
 } CPU_state;
 
