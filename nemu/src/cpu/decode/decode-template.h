@@ -32,8 +32,12 @@ make_helper(concat(decode_si_, SUFFIX)) {
 	 *
 	op_src->simm = ???
 	 */
-	panic("please implement me");
-
+	/*panic("please implement me");*/
+	int n=(4-DATA_BYTE)<<3;
+	if(n==0||n==24)
+	op_src->simm=(instr_fetch(eip,DATA_BYTE)<<n)>>n;
+	else
+		panic("please implement me");
 	op_src->val = op_src->simm;
 
 #ifdef DEBUG
