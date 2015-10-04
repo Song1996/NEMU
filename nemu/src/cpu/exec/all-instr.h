@@ -15,6 +15,7 @@
 #include "arith/cmp.h"
 
 #include "ctrl-tran/call.h"
+#include "ctrl-tran/jcc.h"
 
 #include "logic/and.h"
 #include "logic/or.h"
