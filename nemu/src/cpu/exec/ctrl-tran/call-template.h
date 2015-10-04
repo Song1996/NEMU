@@ -5,6 +5,8 @@
 static void do_execute(){
 	int src = op_src->val;
 	cpu.eip += src;
+	cpu.esp-=4;
+	swaddr_write(cpu.esp,4,cpu.eip+5);
 	//printf("call $0x%x",src);
 	print_asm_template1();
 	
