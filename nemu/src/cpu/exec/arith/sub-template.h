@@ -20,7 +20,7 @@ static void do_execute(){
 		copy>>=1;
 	}
 	cpu.PF=bit;
-//	print_asm_template2();
+	print_asm_template2();
 }
 
 make_instr_helper(i2a)
