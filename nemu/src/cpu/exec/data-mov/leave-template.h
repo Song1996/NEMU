@@ -1,7 +1,5 @@
 #include "cpu/exec/template-start.h"
 
-#define instr leave
-
 make_helper(concat(leave_,SUFFIX))
 {
 	cpu.esp=cpu.ebp;
