@@ -12,13 +12,6 @@ make_helper(concat(ja_i_,SUFFIX))
 	return len+1;
 }
 
-
-
-
-
-
-
-
 make_helper(concat(je_i_, SUFFIX))
 {
 	int len=concat(decode_i_,SUFFIX)(eip+1);
@@ -28,6 +21,47 @@ make_helper(concat(je_i_, SUFFIX))
 	print_asm_template1();
 	return len+1;
 }
+
+make_helper(concat(jae_i_,SUFFIX))
+{
+    int len=concat(decode_i_,SUFFIX)(eip+1);
+	int src=op_src->val;
+	if(((!cpu.CF)&&(!cpu.ZF))||!cpu.CF)
+		cpu.eip+=src;
+	print_asm_template1();
+	return len+1;
+}
+
+make_helper(concat(jb_i_,SUFFIX))
+{
+	int len=concat(decode_i_,SUFFIX)(eip+1);
+	int src=op_src->val;
+	if(cpu.CF)
+		cpu.eip+=src;
+	print_asm_template1();
+	return len+1;
+}
+
+make_helper(concat(jbe_i_,SUFFIX))
+{
+	int len=concat(decode_i_,SUFFIX)(eip+1);
+	int src=op_src->val;
+	if(cpu.CF||cpu.ZF)
+		cpu.eip+=src;
+	print_asm_template1();
+	return len+1;
+}
+
+
+
+
+
+
+
+
+
+
+
 
 
 #include "cpu/exec/template-end.h"
