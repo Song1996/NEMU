@@ -26,7 +26,7 @@ make_helper(concat(jae_i_,SUFFIX))
 {
     int len=concat(decode_i_,SUFFIX)(eip+1);
 	int src=op_src->val;
-	if(((!cpu.CF)&&(!cpu.ZF))||!cpu.CF)
+	if(!cpu.CF)
 		cpu.eip+=src;
 	print_asm_template1();
 	return len+1;
@@ -51,6 +51,47 @@ make_helper(concat(jbe_i_,SUFFIX))
 	print_asm_template1();
 	return len+1;
 }
+
+make_helper(concat(jc_i_,SUFFIX))
+{
+	int len=concat(decode_i_,SUFFIX)(eip+1);
+	int src=op_src->val;
+	if(cpu.CF)
+		cpu.eip+=src;
+	print_asm_template1();
+	return len+1;
+}
+
+make_helper(concat(jcxz_i_,SUFFIX))
+{
+	int len=concat(decode_i_,SUFFIX)(eip+1);
+	int src=op_src->val;
+	if(reg_w(R_CX)==0)
+		cpu.eip+=src;
+	print_asm_template1();
+	return len+1;
+}
+
+make_helper(concat(jecxz_i_,SUFFIX))
+{
+	int len=concat(decode_i_,SUFFIX)(eip+1);
+	int src=op_src->val;
+	if(cpu.ecx==0)
+		cpu.eip+=src;
+	print_asm_template1();
+	return len+1;
+}
+
+
+
+
+
+
+
+
+
+
+
 
 
 
