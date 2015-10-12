@@ -35,9 +35,9 @@ make_helper(concat(decode_si_, SUFFIX)) {
 	/*panic("please implement me");*/
 	int n=(4-DATA_BYTE)<<3;
 	int t=instr_fetch(eip,DATA_BYTE);
-	printf("%d\n",t);
+	//printf("%d\n",t);
 	op_src->simm=(t<<n)>>n;
-	printf("%d\n",op_src->simm);
+	//printf("%d\n",op_src->simm);
 	op_src->val = op_src->simm;
 
 #ifdef DEBUG
