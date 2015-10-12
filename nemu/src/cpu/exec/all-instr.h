@@ -20,6 +20,7 @@
 #include "ctrl-tran/call.h"
 #include "ctrl-tran/jcc.h"
 #include "ctrl-tran/jmp.h"
+#include "ctrl-tran/ret.h"
 
 #include "logic/and.h"
 #include "logic/or.h"
