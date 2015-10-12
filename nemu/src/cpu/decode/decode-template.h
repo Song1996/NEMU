@@ -34,8 +34,9 @@ make_helper(concat(decode_si_, SUFFIX)) {
 	 */
 	/*panic("please implement me");*/
 	int n=(4-DATA_BYTE)<<3;
+	int t=instr_fetch(eip,DATA_BYTE);
 	//if(n==0||n==24||n==16)
-	op_src->simm=(((int)instr_fetch(eip,DATA_BYTE))<<n)>>n;
+	op_src->simm=(t<<n)>>n;
 	//else
 	//	panic("please implement me");
 	op_src->val = op_src->simm;
