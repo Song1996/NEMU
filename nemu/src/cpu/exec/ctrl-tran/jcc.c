@@ -15,7 +15,7 @@
 make_helper_v(ja_i)
 make_helper_v(jae_i)
 make_helper_v(jb_i)
-make_helper_v(jbe_i)
+make_helper_v(jbe_si)
 make_helper_v(jc_i)
 make_helper_v(je_i)
 make_helper_v(jz_i)

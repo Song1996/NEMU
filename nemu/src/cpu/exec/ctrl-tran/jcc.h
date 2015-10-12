@@ -4,7 +4,7 @@
 make_helper(ja_i_b);
 make_helper(jae_i_b);
 make_helper(jb_i_b);
-make_helper(jbe_i_b);
+make_helper(jbe_si_b);
 make_helper(jc_i_b);
 make_helper(jcxz_i_b);
 make_helper(jecxz_i_b);
@@ -39,7 +39,7 @@ make_helper(js_i_b);
 make_helper(ja_i_v);
 make_helper(jae_i_v);
 make_helper(jb_i_v);
-make_helper(jbe_i_v);
+make_helper(jbe_si_v);
 make_helper(jc_i_v);
 make_helper(je_i_v);
 make_helper(jz_i_v);
