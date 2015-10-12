@@ -45,7 +45,7 @@ make_helper(concat(jb_i_,SUFFIX))
 make_helper(concat(jbe_i_,SUFFIX))
 {
 	int len=concat(decode_i_,SUFFIX)(eip+1);
-	int src=op_src->val;
+	int src=(int)op_src->val;
 	if(cpu.CF||cpu.ZF)
 		cpu.eip+=src;
 	print_asm_template1();
