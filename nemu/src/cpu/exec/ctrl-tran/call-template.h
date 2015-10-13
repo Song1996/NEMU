@@ -4,10 +4,11 @@
 
 static void do_execute(){
 	int src = op_src->val;
-	cpu.eip += src;
+	//cpu.eip += src;
 	cpu.esp-=4;
 	if(DATA_BYTE==2)assert(0);
 	swaddr_write(cpu.esp,4,cpu.eip+5);
+	cpu.eip += src;
 	//printf("call $0x%x",src);
 	print_asm_template1();
 	
