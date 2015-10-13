@@ -127,7 +127,7 @@ make_helper(concat(jle_i_,SUFFIX))
 {
 	int len=concat(decode_si_,SUFFIX)(eip+1);
 	int src=op_src->val;
-	if(cpu.ZF||cpu.SF!=cpu.OF)
+	if(cpu.ZF||(cpu.SF!=cpu.OF))
 		cpu.eip+=src;
 	print_asm_template1();
 	return len+1;
