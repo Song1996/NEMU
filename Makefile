@@ -54,6 +54,7 @@ clean: clean-cpp
 
 USERPROG := obj/testcase/add
 USERPROG := obj/testcase/max
+USERPROG := obj/testcase/leap-year
 ENTRY := $(USERPROG)
 
 entry: $(ENTRY)
