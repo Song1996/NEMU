@@ -60,7 +60,7 @@ USERPROG := obj/testcase/min3
 USERPROG := obj/testcase/shuixianhua
 USERPROG := obj/testcase/prime
 USERPROG := obj/testcase/fact
-/*USERPROG := obj/testcase/fib*/
+USERPROG := obj/testcase/fib
 //USERPROG := obj/testcase/bit
 
 ENTRY := $(USERPROG)
