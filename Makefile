@@ -53,7 +53,7 @@ clean: clean-cpp
 ##### some convinient rules #####
 
 USERPROG := obj/testcase/add
-//USERPROG := obj/testcase/max
+USERPROG := obj/testcase/max
 //USERPROG := obj/testcase/leap-year
 //USERPROG := obj/testcase/if-else
 //USERPROG := obj/testcase/min3
