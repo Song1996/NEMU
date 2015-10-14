@@ -6,7 +6,7 @@ static void do_execute() {
 	//swaddr_t  addr=op_src->val;
 	OPERAND_W(op_dest,MEM_R(cpu.esp));
 	cpu.esp+=DATA_BYTE;
-	print_asm_template2();
+	print_asm_template1();
 }
 
 make_instr_helper(rm)
