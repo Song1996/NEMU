@@ -59,7 +59,8 @@ USERPROG := obj/testcase/if-else
 USERPROG := obj/testcase/min3
 //USERPROG := obj/testcase/shuixianhua
 //USERPROG := obj/testcase/prime
-USERPROG := obj/testcase/fact
+//USERPROG := obj/testcase/fact
+USERPROG := obj/testcase/fib
 
 ENTRY := $(USERPROG)
 
