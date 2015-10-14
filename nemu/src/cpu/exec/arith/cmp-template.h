@@ -3,10 +3,12 @@
 #define instr cmp
 
 static void do_execute(){
-	int left = op_dest->val;
-	int right = op_src->val;
-	int result = left - right;
-	cpu.OF = (MSB(left)==MSB(right))&&(MSB(left)!=MSB(result));
+	DATA_TYPE left = op_dest->val;
+	DATA_TYPE right = op_src->val;
+	DATA_TYPE result = left - right;
+	DATA_TYPE min=(0x1<<(DATA_BYTE*8-1));
+	//cpu.OF = (MSB(left)==MSB(right))&&(MSB(left)!=MSB(result));
+	cpu.OF = (left<min && right>=min && result>=min)||(left>=min && right<min && result<min)||(left==0 && right==min);
 	cpu.SF = !!MSB(result);
 	cpu.ZF = !result;
 	cpu.CF = (result>left);
