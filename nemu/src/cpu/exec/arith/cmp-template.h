@@ -3,9 +3,9 @@
 #define instr cmp
 
 static void do_execute(){
-	int left = op_dest->val;
-	int right = op_src->val;
-	int result = left - right;
+	DATA_TYPE left = op_dest->val;
+	DATA_TYPE right = op_src->val;
+	DATA_TYPE result = left - right;
 	cpu.OF = (MSB(left)==MSB(right))&&(MSB(left)!=MSB(result));
 	cpu.SF = !!MSB(result);
 	cpu.ZF = !result;
