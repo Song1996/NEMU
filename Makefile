@@ -62,6 +62,7 @@ USERPROG := obj/testcase/prime
 USERPROG := obj/testcase/fact
 USERPROG := obj/testcase/fib
 USERPROG := obj/testcase/bit
+USERPROG := obj/testcase/bubble-sort
 
 ENTRY := $(USERPROG)
 
