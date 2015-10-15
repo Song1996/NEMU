@@ -66,6 +66,7 @@ USERPROG := obj/testcase/bubble-sort
 //USERPROG := obj/testcase/struct
 USERPROG := obj/testcase/select-sort
 USERPROG := obj/testcase/gotbaha
+USERPROG := obj/testcase/matrix-mul
 
 ENTRY := $(USERPROG)
 
