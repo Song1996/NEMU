@@ -63,7 +63,8 @@ USERPROG := obj/testcase/fact
 USERPROG := obj/testcase/fib
 //USERPROG := obj/testcase/bit
 USERPROG := obj/testcase/bubble-sort
-USERPROG := obj/testcase/struct
+//USERPROG := obj/testcase/struct
+USERPROG := obj/testcase/select-sort
 
 ENTRY := $(USERPROG)
 
