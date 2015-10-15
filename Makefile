@@ -70,6 +70,7 @@ USERPROG := obj/testcase/matrix-mul
 USERPROG := obj/testcase/matrix-mul-small
 //USERPROG := obj/testcase/add-longlong
 USERPROG := obj/testcase/pascal
+USERPROG := obj/testcase/sum
 
 
 ENTRY := $(USERPROG)
