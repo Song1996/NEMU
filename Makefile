@@ -68,6 +68,7 @@ USERPROG := obj/testcase/select-sort
 USERPROG := obj/testcase/gotbaha
 USERPROG := obj/testcase/matrix-mul
 USERPROG := obj/testcase/matrix-mul-small
+USERPROG := obj/testcase/add-longlong
 
 ENTRY := $(USERPROG)
 
