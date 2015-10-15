@@ -71,7 +71,8 @@ USERPROG := obj/testcase/matrix-mul-small
 //USERPROG := obj/testcase/add-longlong
 USERPROG := obj/testcase/pascal
 USERPROG := obj/testcase/sum
-USERPROG := obj/testcase/switch
+//USERPROG := obj/testcase/switch
+USERPROG := obj/testcase/to-lower-case
 
 
 ENTRY := $(USERPROG)
