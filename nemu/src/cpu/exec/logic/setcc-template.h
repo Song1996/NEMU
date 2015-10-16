@@ -48,8 +48,8 @@ make_helper(concat(setc_rm_,SUFFIX))
 make_helper(concat(sete_rm_,SUFFIX))
 {
 	int len=concat(decode_rm_,SUFFIX)(eip+1);
-	if(cpu.ZF)OPERAND_W(op_src,1);
-	else OPERAND_W(op_src,0);
+	if(cpu.ZF)OPERAND_W(op_src,0xff);
+	else OPERAND_W(op_src,0x00);
 	print_asm_template1();
 	return len+1;
 }
