@@ -61,9 +61,9 @@ USERPROG := obj/testcase/shuixianhua
 USERPROG := obj/testcase/prime
 USERPROG := obj/testcase/fact
 USERPROG := obj/testcase/fib
-//USERPROG := obj/testcase/bit
-USERPROG := obj/testcase/quick-sort
-USERPROG := obj/testcase/string
+USERPROG := obj/testcase/bit
+/USERPROG := obj/testcase/quick-sort
+/USERPROG := obj/testcase/string
 
 /USERPROG := obj/testcase/bubble-sort
 //USERPROG := obj/testcase/struct
