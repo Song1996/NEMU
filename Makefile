@@ -66,7 +66,7 @@ USERPROG := obj/testcase/fib
 /USERPROG := obj/testcase/string
 
 /USERPROG := obj/testcase/bubble-sort
-//USERPROG := obj/testcase/struct
+USERPROG := obj/testcase/struct
 /USERPROG := obj/testcase/select-sort
 /USERPROG := obj/testcase/gotbaha
 /USERPROG := obj/testcase/matrix-mul
@@ -75,7 +75,7 @@ USERPROG := obj/testcase/fib
 /USERPROG := obj/testcase/pascal
 /USERPROG := obj/testcase/sum
 //USERPROG := obj/testcase/switch
-USERPROG := obj/testcase/to-lower-case
+//USERPROG := obj/testcase/to-lower-case
 /USERPROG := obj/testcase/wanshu
 
 
