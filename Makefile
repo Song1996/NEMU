@@ -74,8 +74,8 @@ USERPROG := obj/testcase/fib
 //USERPROG := obj/testcase/add-longlong
 /USERPROG := obj/testcase/pascal
 /USERPROG := obj/testcase/sum
-USERPROG := obj/testcase/switch
-//USERPROG := obj/testcase/to-lower-case
+//USERPROG := obj/testcase/switch
+USERPROG := obj/testcase/to-lower-case
 /USERPROG := obj/testcase/wanshu
 
 
