@@ -287,6 +287,7 @@ static int cmd_bp()
 		printf("#%d		0x%08x in ",i++,cpu.eip);
 		find_print_func(position);
 		printf("\n");
+		printf("%x\n",swaddr_read(ebp,4));
 		if(swaddr_read(ebp,4)==0)break;
 		position=swaddr_read(ebp+4,4);
 		ebp=swaddr_read(ebp,4);
