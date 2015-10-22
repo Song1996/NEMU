@@ -89,7 +89,7 @@ uint32_t variable_value(char* s)
 		if(strcmp(strtab+symtab[i].st_name,s)==0)
 			if((ELF32_ST_TYPE(symtab[i].st_info) == STT_FUNC) || (ELF32_ST_TYPE(symtab[i].st_info) == STT_OBJECT))
 				return symtab[i].st_value;
-	return -1;
+	return -100;
 
 }
 
