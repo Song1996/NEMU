@@ -9,10 +9,10 @@
 bool check_parentheses(int p,int q);
 uint32_t eval(int p,int q);
 int prior(int t);
-	
+uint32_t variable_value(char* s);	
 		
 enum {
-	NOTYPE = 256, EQ,NUM,HEXNUM,NQ,AND,OR,REG,DEFER
+	NOTYPE = 256, EQ,NUM,HEXNUM,NQ,AND,OR,REG,DEFER,VAR
 
 	/* TODO: Add more token types */
 
@@ -41,7 +41,8 @@ static struct rule {
 	{"\\|{2}",OR},					//OR	
 	{"0[xX][0-9a-fA-F]+",HEXNUM},	//HEXNUM
 	{"[0-9]+",NUM},					// Decimal number
-	{"(\\$e?[abcd]x)|(\\$e?[sd]i)|(\\$e?[sb]p)|(\\$[abcd][lh])|(\\$eip)",REG}	//registers
+	{"(\\$e?[abcd]x)|(\\$e?[sd]i)|(\\$e?[sb]p)|(\\$[abcd][lh])|(\\$eip)",REG},	//registers
+	{"[0-9a-zA-Z_]",VAR}			//Variable
 
 };
 
@@ -123,9 +124,13 @@ static bool make_token(char *e) {
 							  for(j=1;j<substr_len;j++)
 								  tokens[ nr_token ].str[j-1]=substr_start[j];
 							  tokens[ nr_token ++ ].str[j-1]='\0';break;
+					case VAR: tokens[ nr_token ++ ].type=VAR;
+							  for(j=0;j<substr_len;j++)
+								  tokens[ nr_token ].str[j]=substr_start[j];
+							  tokens[nr_token].str[j]='\0';
+							  nr_token++;break;
 					default: panic("please implement me");
 				}
-
 				break;
 			}
 		}
@@ -212,6 +217,10 @@ uint32_t eval(int p,int q)
 				return cpu.eip;
 			assert(0);
 			return 0;
+		}
+		else if(tokens[p].type==VAR)
+		{
+			return variable_value(tokens[p].str);	
 		}
 		else
 		{
