@@ -42,7 +42,7 @@ static struct rule {
 	{"0[xX][0-9a-fA-F]+",HEXNUM},	//HEXNUM
 	{"[0-9]+",NUM},					// Decimal number
 	{"(\\$e?[abcd]x)|(\\$e?[sd]i)|(\\$e?[sb]p)|(\\$[abcd][lh])|(\\$eip)",REG},	//registers
-	{"[0-9a-zA-Z_]",VAR}			//Variable
+	{"[0-9a-zA-Z_]+",VAR}			//Variable
 
 };
 
@@ -124,7 +124,7 @@ static bool make_token(char *e) {
 							  for(j=1;j<substr_len;j++)
 								  tokens[ nr_token ].str[j-1]=substr_start[j];
 							  tokens[ nr_token ++ ].str[j-1]='\0';break;
-					case VAR: tokens[ nr_token  ].type=VAR;
+					case VAR: tokens[ nr_token ].type=VAR;
 							  for(j=0;j<substr_len;j++)
 								  tokens[ nr_token ].str[j]=substr_start[j];
 							  tokens[nr_token].str[j]='\0';
