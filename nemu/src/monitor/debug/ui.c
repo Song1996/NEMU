@@ -288,7 +288,7 @@ static int cmd_bp()
 		find_print_func(position);
 		printf("\n");
 		printf("%x\n",ebp);
-		if(swaddr_read(ebp,4)==0)break;
+		if(ebp==0)break;
 		position=swaddr_read(ebp+4,4);
 		ebp=swaddr_read(ebp,4);
 	}
