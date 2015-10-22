@@ -9,6 +9,7 @@
 extern CPU_state cpu;
 
 void cpu_exec(uint32_t);
+void find_print_func();
 
 /* We use the ``readline'' library to provide more flexibility to read from stdin. */
 char* rl_gets() {
@@ -44,6 +45,7 @@ static int cmd_x(char *args);
 static int cmd_p(char *args);
 static int cmd_w(char *args);
 static int cmd_d(char *args);
+static int cmd_bp();
 
 static struct {
 	char *name;
@@ -58,7 +60,8 @@ static struct {
 	{"x","Scan memory",cmd_x},
 	{"p","Calaulate the Polynomial",cmd_p},
 	{"w","ADD one Watchpoint",cmd_w},
-	{"d","delete one watchpoint",cmd_d}
+	{"d","delete one watchpoint",cmd_d},
+	{"bp","zhanzhenglian",cmd_bp}
 	/* TODO: Add more commands */
 };
 
@@ -274,6 +277,21 @@ static int cmd_d(char *args)
 	return 0;
 }
 
+static int cmd_bp()
+{
+	int position=cpu.eip;
+	uint32_t ebp=cpu.ebp;
+	int i=1;
+	while(swaddr_read(ebp,4)!=0)
+	{
+		printf("#%d		0x%08x in ",i++,cpu.eip);
+		find_print_func(position);
+		printf("\n");
+		position=swaddr_read(ebp+4,4);
+		ebp=swaddr_read(ebp,4);
+	}
+	return 0;
+}
 
 void ui_mainloop() {
 	while(1) {
