@@ -97,9 +97,9 @@ void find_print_func(uint32_t addr)
 {
 	int i=0;
 	for(;i<nr_symtab_entry;i++)
-		if(addr<=symtab[i].st_value+symtab[i].st_size && addr>=symtab[i].st_value && ELF32_ST_TYPE(symtab[i].st_info)==STT_FUNC)
+		if(addr<=(symtab[i].st_value+symtab[i].st_size) && addr>=symtab[i].st_value && ELF32_ST_TYPE(symtab[i].st_info)==STT_FUNC)
 		{printf("%s",strtab+symtab[i].st_name);return;}
-	assert(0);
+	//assert(0);
 	return;
 }
 
