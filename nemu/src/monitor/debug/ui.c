@@ -284,11 +284,12 @@ static int cmd_bp()
 	int i=1;
 	while(1)//swaddr_read(ebp,4)!=0)
 	{
+		if(ebp==0)break;
 		printf("#%d		0x%08x in ",i++,cpu.eip);
 		find_print_func(position);
 		printf("\n");
 		printf("%x\n",ebp);
-		if(ebp==0)break;
+		//if(ebp==0)break;
 		position=swaddr_read(ebp+4,4);
 		ebp=swaddr_read(ebp,4);
 	}
