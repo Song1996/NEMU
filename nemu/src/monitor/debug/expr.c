@@ -124,7 +124,7 @@ static bool make_token(char *e) {
 							  for(j=1;j<substr_len;j++)
 								  tokens[ nr_token ].str[j-1]=substr_start[j];
 							  tokens[ nr_token ++ ].str[j-1]='\0';break;
-					case VAR: tokens[ nr_token ++ ].type=VAR;
+					case VAR: tokens[ nr_token  ].type=VAR;
 							  for(j=0;j<substr_len;j++)
 								  tokens[ nr_token ].str[j]=substr_start[j];
 							  tokens[nr_token].str[j]='\0';
@@ -225,9 +225,7 @@ uint32_t eval(int p,int q)
 			panic("wrong expr");
 			return -1;
 		}
-	}
-	//else if(tokens[p].type==VAR)
-	//		return variable_value(tokens[p].str);	
+	}	
 	else if(check_parentheses(p,q))
 	{
 		return eval(p+1,q-1);
