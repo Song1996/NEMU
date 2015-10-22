@@ -218,16 +218,14 @@ uint32_t eval(int p,int q)
 			assert(0);
 			return 0;
 		}
-		else if(tokens[p].type==VAR)
-		{
-			return variable_value(tokens[p].str);	
-		}
 		else
 		{
 			panic("wrong expr");
 			return -1;
 		}
 	}
+	else if(tokens[p].type==VAR)
+			return variable_value(tokens[p].str);	
 	else if(check_parentheses(p,q))
 	{
 		return eval(p+1,q-1);
