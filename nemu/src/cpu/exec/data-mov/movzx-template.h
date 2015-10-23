@@ -6,7 +6,7 @@ make_helper(concat(movzx_rm2r_,SUFFIX))
 {
 	int len=concat(decode_rm2r_,SUFFIX)(eip+1);
 	unsigned int src=op_src->val;
-	print_asm("\n\n%d\n",src);
+	print_asm_template2();
 	if (DATA_BYTE==1)
 	{
 		src<<=24;
