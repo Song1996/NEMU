@@ -65,7 +65,7 @@ USERPROG := obj/testcase/fib
 USERPROG := obj/testcase/quick-sort
 //USERPROG := obj/testcase/string
 
-/USERPROG := obj/testcase/bubble-sort
+USERPROG := obj/testcase/bubble-sort
 //USERPROG := obj/testcase/struct
 /USERPROG := obj/testcase/select-sort
 /USERPROG := obj/testcase/gotbaha
