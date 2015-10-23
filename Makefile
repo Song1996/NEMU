@@ -67,12 +67,12 @@ USERPROG := obj/testcase/add
 /USERPROG := obj/testcase/string
 
 /USERPROG := obj/testcase/bubble-sort
-//USERPROG := obj/testcase/struct
+USERPROG := obj/testcase/struct
 /USERPROG := obj/testcase/select-sort
 /USERPROG := obj/testcase/gotbaha
 /USERPROG := obj/testcase/matrix-mul
 /USERPROG := obj/testcase/matrix-mul-small
-USERPROG := obj/testcase/add-longlong
+//USERPROG := obj/testcase/add-longlong
 /USERPROG := obj/testcase/pascal
 /USERPROG := obj/testcase/sum
 /USERPROG := obj/testcase/switch
