@@ -5,7 +5,7 @@
 static void do_execute() {
 	//swaddr_t  addr=op_src->val;
 	OPERAND_W(op_src,MEM_R(cpu.esp));
-	cpu.esp+=DATA_BYTE;
+	cpu.esp+=4;
 	print_asm_template1();
 }
 
