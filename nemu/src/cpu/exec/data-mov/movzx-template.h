@@ -16,8 +16,8 @@ make_helper(concat(movzx_rm2r_,SUFFIX))
 		src<<=16;
 		src>>=16;	
 	}
-	//else
-	//	nemu_assert();
+	else
+		print_asm("wrong\n");
 	OPERAND_W(op_dest,src);
 	print_asm_template2();
 	return len+1;
