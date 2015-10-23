@@ -19,6 +19,7 @@
 #include "arith/sub.h"
 #include "arith/cmp.h"
 #include "arith/add.h"
+#include "arith/adc.h"
 
 #include "ctrl-tran/call.h"
 #include "ctrl-tran/jcc.h"
