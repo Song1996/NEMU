@@ -13,7 +13,7 @@ make_helper(concat(jmp_si_,SUFFIX)){
 make_helper(concat(jmp_rm_,SUFFIX)){
 	int len=concat(decode_rm_,SUFFIX)(eip+1);
 	int src=op_src->val;
-	cpu.eip+=src;
+	cpu.eip=src;
 	print_asm_template1();
 	return len+1;
 }
