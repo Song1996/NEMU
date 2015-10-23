@@ -61,24 +61,22 @@ USERPROG := obj/testcase/shuixianhua
 USERPROG := obj/testcase/prime
 USERPROG := obj/testcase/fact
 USERPROG := obj/testcase/fib
-//USERPROG := obj/testcase/bit
 USERPROG := obj/testcase/quick-sort
-//USERPROG := obj/testcase/string
-
 USERPROG := obj/testcase/bubble-sort
-//USERPROG := obj/testcase/struct
 USERPROG := obj/testcase/select-sort
 USERPROG := obj/testcase/gotbaha
 USERPROG := obj/testcase/matrix-mul
 USERPROG := obj/testcase/matrix-mul-small
-//USERPROG := obj/testcase/add-longlong
-USERPROG := obj/testcase/add-longlong
 /USERPROG := obj/testcase/pascal
 /USERPROG := obj/testcase/sum
 /USERPROG := obj/testcase/switch
 /USERPROG := obj/testcase/to-lower-case
 /USERPROG := obj/testcase/wanshu
-//USERPROG := obj/testcase/mul-longlong*/
+//USERPROG := obj/testcase/string
+//USERPROG := obj/testcase/bit
+//USERPROG := obj/testcase/struct
+//USERPROG := obj/testcase/mul-longlong
+//USERPROG := obj/testcase/add-longlong
 
 
 ENTRY := $(USERPROG)
