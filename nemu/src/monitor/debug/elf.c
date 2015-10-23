@@ -86,7 +86,7 @@ uint32_t variable_value(char* s)
 {
 	int i=0;
 	for(;i<nr_symtab_entry;i++)
-		if((strcmp(strtab+symtab[i].st_name,s)==0)&&((ELF32_ST_TYPE(symtab[i].st_info) == STT_FUNC) || (ELF32_ST_TYPE(symtab[i].st_info) == STT_OBJECT)))
+		if((strcmp(strtab+symtab[i].st_name,s)==0)&&(ELF32_ST_TYPE(symtab[i].st_info) == STT_OBJECT))
 				return symtab[i].st_value;
 	printf("no such variable\n");
 	return -1;
