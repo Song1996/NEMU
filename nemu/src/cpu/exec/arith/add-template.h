@@ -8,7 +8,9 @@ static void do_execute()
 	DATA_TYPE right=op_src->val;
 	DATA_TYPE result=left+right;
 	OPERAND_W(op_dest,result);
-	cpu.OF=((MSB(left)==MSB(right))&&MSB(left)!=MSB(result));
+	//cpu.OF=((MSB(left)==MSB(right))&&MSB(left)!=MSB(result));
+	DATA_TYPE min=(0x1<<(DATA_BYTE*8-1));
+	cpu.OF = (left<min && right>=min && result>=min)||(left>=min && right<min &&result<min)||(left==0 && right==min);
 	cpu.CF=(result>left);
 	cpu.SF=!!MSB(result);
 	cpu.ZF=!result;
