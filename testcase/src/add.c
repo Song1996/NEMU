@@ -1,4 +1,5 @@
 #include "trap.h"
+int song[42];
 
 int add(int a, int b) {
 	int c = a + b;
