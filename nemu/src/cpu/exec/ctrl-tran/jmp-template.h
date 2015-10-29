@@ -5,6 +5,7 @@
 make_helper(concat(jmp_si_,SUFFIX)){
 	int len=concat(decode_si_,SUFFIX)(eip+1);
 	int src=op_src->val;
+	printf("%d\n",src);
 	cpu.eip+=src;
 	print_asm_template1();
 	return len+1;
