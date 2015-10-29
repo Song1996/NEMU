@@ -38,6 +38,7 @@ uint32_t loader() {
 	elf = (void*)buf;
 	/* Load each program segment */
 	//panic("please implement me");
+	nemu_assert(0);
 	ph = (void *)(buf + elf->e_phoff);
 	for(;ph!=(void*)(buf+elf->e_phoff+elf->e_phentsize*elf->e_phnum);ph++ ) {
 		/* Scan the program header table, load each segment into memory */
