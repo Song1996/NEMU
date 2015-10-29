@@ -41,7 +41,7 @@ uint32_t loader() {
 		/* Scan the program header table, load each segment into memory */
 		if(ph->p_type == PT_LOAD) {
 			uint8_t*vaddr=(void*)(ph->p_vaddr);
-			uint8_t*offset=(void*)(ph->p_offset);
+			uint8_t*offset=(void*)(ph->p_offset) + (void*)buf;
 			int i;
 			for(i=0;i<ph->p_filesz;i++)vaddr[i]=offset[i];
 			/* TODO: read the content of the segment from the ELF file 
