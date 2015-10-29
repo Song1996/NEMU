@@ -11,12 +11,12 @@ make_helper(concat(jmp_si_,SUFFIX)){
 }
 
 make_helper(concat(jmp_rm_,SUFFIX)){
-	concat(decode_rm_,SUFFIX)(eip+1);
+	int len=concat(decode_rm_,SUFFIX)(eip+1);
 	int src=op_src->val;
 	printf("%d\n",src);
-	cpu.eip=src;
+	cpu.eip=src-(len+1);
 	print_asm_template1();
-	return 0;
+	return len+1;
 }
 
 //make_instr_helper(si)
