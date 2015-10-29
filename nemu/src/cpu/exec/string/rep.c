@@ -3,7 +3,7 @@
 make_helper(exec);
 
 make_helper(rep) {
-	int len;
+	int len=1;
 	int count = 0;
 	if(instr_fetch(eip + 1, 1) == 0xc3) {
 		/* repz ret */
@@ -12,7 +12,7 @@ make_helper(rep) {
 		len = 0;
 	}
 	else {
-		printf("***\n");
+		printf("%d\n\n",len);
 		while(cpu.ecx) {
 			exec(eip + 1);
 			count ++;
