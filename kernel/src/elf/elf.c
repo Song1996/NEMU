@@ -40,7 +40,7 @@ uint32_t loader() {
 	int j;
 	ph = (void *)elf->e_phoff;
 	for(t=0;t<elf->e_phnum;t++ ) {
-		ph=(void*)elf->e_phoff + elf->phentsize*t;
+		ph=(void*)buf + elf->e_phoff + elf->phentsize*t;
 		/* Scan the program header table, load each segment into memory */
 		if(ph->p_type == PT_LOAD) {
 			nemu_assert(0);
