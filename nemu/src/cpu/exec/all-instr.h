@@ -25,6 +25,7 @@
 #include "ctrl-tran/jcc.h"
 #include "ctrl-tran/jmp.h"
 #include "ctrl-tran/ret.h"
+#include "ctrl-tran/flag.h"
 
 #include "logic/and.h"
 #include "logic/or.h"
