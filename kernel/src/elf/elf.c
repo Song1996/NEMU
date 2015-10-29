@@ -35,17 +35,15 @@ uint32_t loader() {
 	uint32_t *p_magic = (void *)buf;
 	nemu_assert(*p_magic == elf_magic);
 
+	elf = (void*)buf;
 	/* Load each program segment */
 	//panic("please implement me");
-	int j;
-	ph = (void *)elf->e_phoff;
-	for(t=0;t<elf->e_phnum;t++ ) {
-		ph=(void*)buf + elf->e_phoff + elf->phentsize*t;
+	ph = (void *)buf + elf->e_phoff;
+	for(;ph!=(void*)(elf->e_phoff+elf->e_phentsize*elf->e_phnum);ph++ ) {
 		/* Scan the program header table, load each segment into memory */
 		if(ph->p_type == PT_LOAD) {
-			nemu_assert(0);
 			uint8_t*vaddr=(void*)(ph->p_vaddr);
-			uint8_t*offset=(void*)(ph->p_offset) + (void*)buf;
+			uint8_t*offset=(void*)(ph->p_offset + (void*)buf);
 			int i;
 			for(i=0;i<ph->p_filesz;i++)vaddr[i]=offset[i];
 			/* TODO: read the content of the segment from the ELF file 
