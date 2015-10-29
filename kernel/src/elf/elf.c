@@ -37,6 +37,7 @@ uint32_t loader() {
 
 	/* Load each program segment */
 	//panic("please implement me");
+	ph = (void *)elf->e_phoff;
 	for(;ph!=(void*)(elf->e_phoff+elf->e_phentsize*elf->e_phnum);ph++ ) {
 		/* Scan the program header table, load each segment into memory */
 		if(ph->p_type == PT_LOAD) {
