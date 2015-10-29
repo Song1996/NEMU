@@ -1,5 +1,4 @@
 #include "cpu/exec/helper.h"
-//#include "cpu/modrm.h"
 
 make_helper(cld){
 	cpu.DF=0;
