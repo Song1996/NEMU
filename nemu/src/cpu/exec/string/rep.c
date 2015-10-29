@@ -12,7 +12,7 @@ make_helper(rep) {
 		len = 0;
 	}
 	else {
-		printf("%d\n\n",len);
+		//printf("%d\n\n",len);
 		while(cpu.ecx) {
 			exec(eip + 1);
 			count ++;
