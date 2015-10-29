@@ -6,7 +6,7 @@ FLOAT F_mul_F(FLOAT a, FLOAT b) {
 }
 
 FLOAT F_div_F(FLOAT a, FLOAT b) {
-	int c=int(a)/int(b);
+	int c=(int)a/(int)b;
 	return c<<16;
 }
 

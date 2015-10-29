@@ -1,9 +1,13 @@
 # This file will be included by the Makefile under the project directory.
 
 FLOAT_OBJ := $(FLOAT:.a=.o)
+OBJ_LIB_COMMON:=obj/lib-common
 
 $(FLOAT): $(FLOAT_OBJ)
 	ar r $(FLOAT) $(FLOAT_OBJ)
 
 # TODO: write a rule for generating $(FLOAT_OBJ)
 
+$(FLOAT_OBJ): 
+	mkdir -p $(OBJ_LIB_COMMON)
+	gcc -c -m32 $(LIB_COMMON_DIR)/FLOAT.c -fno-builtin -I $(LIB_COMMON_DIR) -o $(OBJ_LIB_COMMON)/FLOAT.o 
