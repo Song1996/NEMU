@@ -13,7 +13,7 @@ make_helper(rep) {
 	}
 	else {
 		//printf("%d\n\n",len);
-		while(cpu.ecx>=0) {
+		while(cpu.ecx) {
 			printf("%d\n",cpu.ecx);
 			exec(eip + 1);
 			count ++;
@@ -27,7 +27,7 @@ make_helper(rep) {
 				|| ops_decoded.opcode == 0xae	// scasb
 				|| ops_decoded.opcode == 0xaf	// scasw
 				);
-
+			if(count>100000)break;
 			/* TODO: Jump out of the while loop if necessary. */
 
 		}
