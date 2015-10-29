@@ -41,6 +41,7 @@ uint32_t loader() {
 	for(;ph!=(void*)(elf->e_phoff+elf->e_phentsize*elf->e_phnum);ph++ ) {
 		/* Scan the program header table, load each segment into memory */
 		if(ph->p_type == PT_LOAD) {
+			nemu_assert(0);
 			uint8_t*vaddr=(void*)(ph->p_vaddr);
 			uint8_t*offset=(void*)(ph->p_offset) + (void*)buf;
 			int i;
