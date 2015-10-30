@@ -39,6 +39,7 @@
 #include "logic/setcc.h"
 
 #include "string/rep.h"
+#include "string/movs.h"
 
 #include "misc/misc.h"
 
