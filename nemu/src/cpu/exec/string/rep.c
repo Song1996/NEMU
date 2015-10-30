@@ -12,13 +12,13 @@ make_helper(rep) {
 		len = 0;
 	}
 	else {
-		printf("%d\n",cpu.ecx);	
+		//printf("%d\n",cpu.ecx);	
 		//printf("%d\n\n",len);
 		while(cpu.ecx) {
 			//printf("%d\n",cpu.ecx);
 			exec(eip + 1);
-			printf("%d\n",cpu.ecx);	
-			break;
+			//printf("%d\n",cpu.ecx);	
+			//break;
 			count ++;
 			cpu.ecx --;
 			assert(ops_decoded.opcode == 0xa4	// movsb
