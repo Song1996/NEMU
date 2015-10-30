@@ -2,20 +2,33 @@
 
 #define instr movs
 
-make_helper(concat(movs_,SUFFIX)){
-	swaddr_write(cpu.edi,DATA_BYTE,swaddr_read(cpu.esi,DATA_BYTE));
-	int temp=DATA_BYTE;
-	if(cpu.DF){
-		cpu.esi-=temp;
-		cpu.edi-=temp;
-	}
-	else{
-		cpu.esi+=temp;
-		cpu.edi+=temp;
-	}
-	if(DATA_BYTE==1)print_asm("movsb");
-	else if(DATA_BYTE==2)print_asm("movsw");
-	else print_asm("movsl");
+make_helper(movs_b){
+	int databyte=1;
+	swaddr_write(cpu.edi,databyte,swaddr_read(cpu.esi,databyte));
+	int temp=databyte;
+	if(cpu.DF){cpu.esi-=temp;cpu.edi-=temp;}
+	else{cpu.esi+=temp;cpu.edi+=temp;}
+	print_asm("movsb");
+	return 1;
+}
+/*
+make_helper(movsw){
+	int databyte=2;
+	swaddr_write(cpu.edi,databyte,swaddr_read(cpu.esi,databyte));
+	int temp=databyte;
+	if(cpu.DF){cpu.esi-=temp;cpu.edi-=temp;}
+	else{cpu.esi+=temp;cpu.edi+=temp;}
+	print_asm("movsb");
+	return 1;
+}*/
+
+make_helper(movs_v){
+	int databyte=ops_decoded.is_data_size_16?2:4;
+	swaddr_write(cpu.edi,databyte,swaddr_read(cpu.esi,databyte));
+	int temp=databyte;
+	if(cpu.DF){cpu.esi-=temp;cpu.edi-=temp;}
+	else{cpu.esi+=temp;cpu.edi+=temp;}
+	print_asm("movsb");
 	return 1;
 }
 

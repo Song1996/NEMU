@@ -4,12 +4,12 @@
 #include "movs-template.h"
 #undef DATA_BYTE
 
-#define DATA_BYTE 2
-#include "movs-template.h"
-#undef DATA_BYTE
+//#define DATA_BYTE 2
+//#include "movs-template.h"
+//#undef DATA_BYTE
 
-#define DATA_BYTE 4
-#include "movs-template.h"
-#undef DATA_BYTE
+//#define DATA_BYTE 4
+//#include "movs-template.h"
+//#undef DATA_BYTE
 
-make_helper_v(movs)
+//make_helper_v(movs)
