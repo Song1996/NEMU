@@ -12,6 +12,7 @@ make_helper(rep) {
 		len = 0;
 	}
 	else {
+		printf("%d\n",cpu.ecx);	
 		//printf("%d\n\n",len);
 		while(cpu.ecx) {
 			//printf("%d\n",cpu.ecx);
