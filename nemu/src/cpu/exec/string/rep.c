@@ -27,7 +27,7 @@ make_helper(rep) {
 				|| ops_decoded.opcode == 0xae	// scasb
 				|| ops_decoded.opcode == 0xaf	// scasw
 				);
-			if(count>100000)break;
+			//if(count>100000)break;
 			/* TODO: Jump out of the while loop if necessary. */
 
 		}
