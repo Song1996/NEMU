@@ -79,8 +79,8 @@ USERPROG := obj/testcase/shuixianhua
 //USERPROG := obj/testcase/add-longlong
 
 
-ENTRY := $(USERPROG)
-#ENTRY := $(kernel_BIN)
+#ENTRY := $(USERPROG)
+ENTRY := $(kernel_BIN)
 
 entry: $(ENTRY)
 	objcopy -S -O binary $(ENTRY) entry
