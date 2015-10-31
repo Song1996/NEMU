@@ -75,8 +75,8 @@ USERPROG := obj/testcase/fib
 #USERPROG := obj/testcase/mul-longlong
 #USERPROG := obj/testcase/bit
 ##USERPROG := obj/testcase/string
-#USERPROG := obj/testcase/struct
-USERPROG := obj/testcase/add-longlong
+USERPROG := obj/testcase/struct
+#USERPROG := obj/testcase/add-longlong
 #USERPROG := obj/testcase/movsx
 #USERPROG := obj/testcase/add
 
