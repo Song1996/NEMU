@@ -2,5 +2,7 @@
 #define __RET_H__
 
 make_helper(ret_v);
+make_helper(ret_si);
+
 
 #endif
