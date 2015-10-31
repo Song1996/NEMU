@@ -2,7 +2,7 @@
 
 make_helper(concat(cmps_,SUFFIX))
 {
-	assert(0);
+	//assert(0);
 		DATA_TYPE left=MEM_R(REG(R_ESI));
 			DATA_TYPE right=MEM_R(REG(R_EDI));
 				DATA_TYPE result=left-right;
