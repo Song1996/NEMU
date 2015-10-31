@@ -78,7 +78,7 @@ USERPROG := obj/testcase/fib
 #USERPROG := obj/testcase/struct
 #USERPROG := obj/testcase/add-longlong
 #USERPROG := obj/testcase/movsx
-USERPROG := obj/testcase/add
+USERPROG := obj/testcase/max
 
 
 ENTRY := $(USERPROG)
