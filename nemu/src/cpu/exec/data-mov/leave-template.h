@@ -3,7 +3,7 @@
 make_helper(concat(leave_,SUFFIX))
 {
 	cpu.esp=cpu.ebp;
-	cpu.ebp=swaddr_read(cpu.esp,4);
+	cpu.ebp=swaddr_read(cpu.esp,DATA_BYTE);
 	cpu.esp+=4;
 	print_asm("leave");
 	return 1;
