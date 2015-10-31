@@ -1,19 +1,19 @@
 #include "cpu/exec/helper.h"
 
-//#define DATA_BYTE 1
-//#include "movs-template.h"
-//#undef DATA_BYTE
+#define DATA_BYTE 1
+#include "movs-template.h"
+#undef DATA_BYTE
 
-//#define DATA_BYTE 2
-//#include "movs-template.h"
-//#undef DATA_BYTE
+#define DATA_BYTE 2
+#include "movs-template.h"
+#undef DATA_BYTE
 
-//#define DATA_BYTE 4
-//#include "movs-template.h"
-//#undef DATA_BYTE
+#define DATA_BYTE 4
+#include "movs-template.h"
+#undef DATA_BYTE
 
-//make_helper_v(movs)
-//
+make_helper_v(movs)
+/*
 make_helper(movs_b){
 	int databyte=1;
 	swaddr_write(cpu.edi,databyte,swaddr_read(cpu.esi,databyte));
@@ -31,4 +31,4 @@ make_helper(movs_v){
 	print_asm("movsd");
 	return 1;
 }
-
+*/
