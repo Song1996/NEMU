@@ -12,7 +12,10 @@ static void do_execute(){
 	cpu.OF=(left<min && right>=min && result>=min)||(left>=min && right<min && result<min)||(left==0 && right==min);//((MSB(left)==MSB(right))&&MSB(left)!=MSB(result));	
 	cpu.SF=!!MSB(result);	
 	cpu.ZF=!result;
-	cpu.CF=(result>left);
+	long long unsigned temp=(long long unsigned)left+right;
+	if(result==temp)cpu.CF=0;
+	else cpu.CF=1;
+	//cpu.CF=(result>left);
 	int i=0;
 	DATA_TYPE copy=result;
 	int bit =1;

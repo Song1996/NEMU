@@ -12,10 +12,8 @@ static void do_execute()
 	DATA_TYPE min=(0x1<<(DATA_BYTE*8-1));
 	cpu.OF = (left<min && right>=min && result>=min)||(left>=min && right<min &&result<min)||(left==0 && right==min);
 	long long unsigned temp=(long long unsigned)left+right;
-		if(result==temp)
-					cpu.CF=0;
-			else
-						cpu.CF=1;
+	if(result==temp)cpu.CF=0;
+	else	cpu.CF=1;
 	cpu.SF=!!MSB(result);
 	cpu.ZF=!result;
 	int i=0;
