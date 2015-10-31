@@ -5,7 +5,7 @@
 static void do_execute()
 {
 	DATA_TYPE left=op_dest->val;
-	DATA_TYPE right=op_src->val;
+	DATA_TYPE right=op_src->val+cpu.CF;
 	DATA_TYPE result=left+right;
 	//OPERAND_W(op_dest,result);
 	cpu.OF=((MSB(left)==MSB(right))&&MSB(left)!=MSB(result));
