@@ -74,8 +74,8 @@ USERPROG := obj/testcase/bubble-sort
 #USERPROG := obj/testcase/wanshu
 #USERPROG := obj/testcase/mul-longlong
 #USERPROG := obj/testcase/bit
-##USERPROG := obj/testcase/string
-USERPROG := obj/testcase/struct
+USERPROG := obj/testcase/string
+##USERPROG := obj/testcase/struct
 #USERPROG := obj/testcase/add-longlong
 ##USERPROG := obj/testcase/movsx
 
