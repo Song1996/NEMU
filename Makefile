@@ -74,7 +74,7 @@ USERPROG := obj/testcase/matrix-mul
 /USERPROG := obj/testcase/wanshu
 /USERPROG := obj/testcase/mul-longlong
 //USERPROG := obj/testcase/string
-//USERPROG := obj/testcase/bit
+USERPROG := obj/testcase/bit
 ## USERPROG := obj/testcase/struct
 //USERPROG := obj/testcase/add-longlong
 

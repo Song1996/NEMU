@@ -3,10 +3,10 @@
 #define instr push
 
 static void do_execute(){
-	swaddr_t addr = op_src->val;
+	uint32_t src = op_src->val;
 	cpu.esp -= 4;
-	MEM_W(cpu.esp,addr);
-	print_asm_template2();
+	swaddr_write(cpu.esp,4,src);
+	print_asm_template1();
 }
 
 make_instr_helper(rm)
