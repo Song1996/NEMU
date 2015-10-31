@@ -27,7 +27,7 @@ static void do_execute()
 }*/
 
 
-
+/*
 static void do_execute () {
 		unsigned n=sizeof(DATA_TYPE)*8-1;
 			DATA_TYPE dest=op_dest->val;
@@ -55,6 +55,42 @@ static void do_execute () {
 																					cpu.PF=!bit;
 
 																						print_asm_template2();
+}
+*/
+
+static void do_execute()
+{
+		DATA_TYPE result=op_dest->val+op_src->val+cpu.CF;
+			DATA_TYPE left=op_dest->val;
+				DATA_TYPE right=op_src->val;
+					OPERAND_W(op_dest, result);
+						long long temp1=(long long)left+right+cpu.CF;
+							if(result==temp1)
+										cpu.OF=0;
+								else
+											cpu.OF=1;
+									cpu.SF=!!MSB(result);
+										cpu.ZF=!result;
+											/*long long unsigned temp=(long long unsigned)left+right+cpu.CF;
+											 *	if(result==temp)
+											 *			cpu.CF=0;
+											 *				else
+											 *						cpu.CF=1;*/
+											int i,count=0;
+												for(i=0;i<8;i++)
+															if((result>>i)&0x1)	count++;
+													if(count % 2) cpu.PF=0;
+														else cpu.PF=1;
+															if((result&0xF)<((left+right+cpu.CF)&0xF))
+																		cpu.AF=1;
+																else
+																			cpu.AF=0;
+																	long long unsigned temp2=(long long unsigned)left+right+cpu.CF;
+																		if(result==temp2)
+																					cpu.CF=0;
+																			else 
+																						cpu.CF=1;
+																				print_asm_template2();
 }
 
 
