@@ -1,7 +1,7 @@
 #include "cpu/exec/template-start.h"
 
 #define instr or
-/*
+
 static void do_execute () {
 	DATA_TYPE result = op_dest->val | op_src->val;
 	OPERAND_W(op_dest, result);
@@ -22,15 +22,15 @@ static void do_execute () {
 	}
 	cpu.PF=bit;
 	print_asm_template2();
-}*/
+}
 
 
-
+/*
 static void do_execute () {
 		DATA_TYPE result = op_dest->val | op_src->val;
 			OPERAND_W(op_dest, result);
 
-				/* TODO: Update EFLAGS. */
+				 TODO: Update EFLAGS. 
 				cpu.CF=cpu.OF=0;
 					cpu.ZF=!result;
 						unsigned n=sizeof(DATA_TYPE)*8-1;
@@ -47,7 +47,7 @@ static void do_execute () {
 												
 													print_asm_template2();
 													}
-
+*/
 make_instr_helper(i2a)
 make_instr_helper(i2rm)
 #if DATA_BYTE == 2 || DATA_BYTE == 4
