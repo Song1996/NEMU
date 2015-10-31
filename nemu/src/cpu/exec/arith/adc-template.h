@@ -8,8 +8,9 @@ static void do_execute()
 	DATA_TYPE right=op_src->val+cpu.CF;
 	DATA_TYPE result=left+right;
 	//OPERAND_W(op_dest,result);
-	cpu.OF=((MSB(left)==MSB(right))&&MSB(left)!=MSB(result));
-	cpu.CF=(result>left);
+	uint64_t z=(uint64_t)right+left;
+	cpu.OF=((MSB(left)==MSB(right))&&MSB(right)!=MSB(result));
+	cpu.CF=!!(z>>(sizeof(DATA_TYPE)*8));
 	cpu.SF=!!MSB(result);
 	cpu.ZF=!result;
 	int i=0;
