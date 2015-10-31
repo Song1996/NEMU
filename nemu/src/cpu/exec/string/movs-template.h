@@ -5,7 +5,7 @@
 make_helper(concat(movs_,SUFFIX)){
 	DATA_TYPE src=MEM_R(cpu.esi);
 	MEM_W(cpu.edi,src);
-	cpu.esi+=DATA_BYTE;cpu.edi+=DATA_BYTE;
+	cpu.esi+=4;cpu.edi+=4;
 	print_asm("movs");
 	return 1;
 }
