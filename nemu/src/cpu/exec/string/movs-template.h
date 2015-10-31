@@ -3,9 +3,9 @@
 #define instr movs
 
 make_helper(concat(movs_,SUFFIX)){
-	//DATA_TYPE src=MEM_R(cpu.esi);
-	//MEM_W(cpu.edi,src);
-	//cpu.esi+=4;cpu.edi+=4;
+	DATA_TYPE src=MEM_R(cpu.esi);
+	MEM_W(cpu.edi,src);
+	cpu.esi+=1;cpu.edi+=1;
 	print_asm("movs");
 	return 1;
 }
