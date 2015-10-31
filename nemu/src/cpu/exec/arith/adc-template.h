@@ -21,7 +21,7 @@ static void do_execute()
 		copy>>=1;
 	}
 	cpu.PF=bit;
-	OPERAND_W(op_dest,(result+cpu.CF));
+	OPERAND_W(op_dest,result);
 	print_asm_template2();
 }
 
