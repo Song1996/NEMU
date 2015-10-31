@@ -40,9 +40,12 @@ uint32_t loader() {
 	//panic("please implement me");
 	//nemu_assert(0);
 	ph = (void *)(buf + elf->e_phoff);
-	for(;ph!=(void*)(buf+elf->e_phoff+elf->e_phentsize*elf->e_phnum);ph++ ) {
-		/* Scan the program header table, load each segment into memory */
+	int j=0;
+	//for(;ph!=(void*)(buf+elf->e_phoff+elf->e_phentsize*elf->e_phnum);ph++ ) {
+	for(;j!=elf->e_phnum;j++){	
+	/* Scan the program header table, load each segment into memory */
 		//nemu_assert(0);
+		ph=(void*)(buf+elf->e_phoff+elf->e_phentsize*j);
 		if(ph->p_type == PT_LOAD) {
 		//	nemu_assert(0);
 			uint8_t*vaddr=(void*)(ph->p_vaddr);
