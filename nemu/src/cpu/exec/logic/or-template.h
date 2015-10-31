@@ -20,7 +20,7 @@ static void do_execute () {
 		bit^=(copy&1);
 		copy>>=1;
 	}
-	cpu.PF=bit;
+	cpu.PF=!bit;
 	print_asm_template2();
 }
 
