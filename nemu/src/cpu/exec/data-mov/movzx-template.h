@@ -4,6 +4,7 @@
 #if DATA_BYTE==2||DATA_BYTE==4
 make_helper(concat(movzx_rm2r_,SUFFIX))
 {
+	assert(0);
 	int len=concat(decode_rm2r_,SUFFIX)(eip+1);
 	uint8_t result=op_src->val;
 	DATA_TYPE temp=result;
@@ -13,6 +14,7 @@ make_helper(concat(movzx_rm2r_,SUFFIX))
 }
 make_helper(concat(movzx2_rm2r_,SUFFIX))
 {
+	assert(0);
 	int len=concat(decode_rm2r_,SUFFIX)(eip+1);
 	uint16_t result=op_src->val;
 	DATA_TYPE temp=result;
