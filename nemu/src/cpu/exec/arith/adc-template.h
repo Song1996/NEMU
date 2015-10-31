@@ -1,7 +1,7 @@
 #include "cpu/exec/template-start.h"
 
 #define instr adc
-/*
+
 static void do_execute()
 {
 	DATA_TYPE left=op_dest->val;
@@ -24,7 +24,7 @@ static void do_execute()
 	cpu.PF=bit;
 	OPERAND_W(op_dest,result);
 	print_asm_template2();
-}*/
+}
 
 
 /*
@@ -57,7 +57,7 @@ static void do_execute () {
 																						print_asm_template2();
 }
 */
-
+/*
 static void do_execute()
 {
 		DATA_TYPE result=op_dest->val+op_src->val+cpu.CF;
@@ -71,11 +71,11 @@ static void do_execute()
 											cpu.OF=1;
 									cpu.SF=!!MSB(result);
 										cpu.ZF=!result;
-											/*long long unsigned temp=(long long unsigned)left+right+cpu.CF;
+											long long unsigned temp=(long long unsigned)left+right+cpu.CF;
 											 *	if(result==temp)
 											 *			cpu.CF=0;
 											 *				else
-											 *						cpu.CF=1;*/
+											 *						cpu.CF=1;
 											int i,count=0;
 												for(i=0;i<8;i++)
 															if((result>>i)&0x1)	count++;
@@ -92,7 +92,7 @@ static void do_execute()
 																						cpu.CF=1;
 																				print_asm_template2();
 }
-
+*/
 
 make_instr_helper(i2a)
 make_instr_helper(i2rm)
