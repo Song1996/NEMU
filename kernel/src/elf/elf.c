@@ -38,11 +38,11 @@ uint32_t loader() {
 	elf = (void*)buf;
 	/* Load each program segment */
 	//panic("please implement me");
-	nemu_assert(0);
+	//nemu_assert(0);
 	ph = (void *)(buf + elf->e_phoff);
 	for(;ph!=(void*)(buf+elf->e_phoff+elf->e_phentsize*elf->e_phnum);ph++ ) {
 		/* Scan the program header table, load each segment into memory */
-		nemu_assert(0);
+		//nemu_assert(0);
 		if(ph->p_type == PT_LOAD) {
 			nemu_assert(0);
 			uint8_t*vaddr=(void*)(ph->p_vaddr);
