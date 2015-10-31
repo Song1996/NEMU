@@ -47,7 +47,7 @@ uint32_t loader() {
 		//nemu_assert(0);
 		ph=(void*)(buf+elf->e_phoff+elf->e_phentsize*j);
 		if(ph->p_type == PT_LOAD) {
-			nemu_assert(0);
+			//nemu_assert(0);
 			uint8_t*vaddr=(void*)(ph->p_vaddr);
 			uint8_t*offset=(void*)(ph->p_offset + (void*)buf);
 			int i;
