@@ -21,7 +21,7 @@ make_helper_v(call_i)
 			uint32_t src=op_src->val;
 				cpu.esp-=4;
 					swaddr_write(cpu.esp,4,cpu.eip+len+1);
-						cpu.eip=src;
+						cpu.eip=src-2;
 							print_asm_template1();
 								return len+1;
 }
@@ -31,7 +31,7 @@ make_helper(call_rm_l)
 			uint32_t src=op_src->val;
 				cpu.esp-=4;
 					swaddr_write(cpu.esp,4,cpu.eip+len+1);
-						cpu.eip=src;
+						cpu.eip=src-2;
 							print_asm_template1();
 								return len+1;
 }
